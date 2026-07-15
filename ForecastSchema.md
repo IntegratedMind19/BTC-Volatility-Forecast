@@ -1,11 +1,12 @@
 **Prediction**
-- predicted *(predicted volatility)*
+- predicted_volatility
 - risk_level
-- monthly_avg *(monthly average volatility)*
+- monthly_avg_volatility
 - volatility_regime
 
 **Forecast Inputs**
 - today_garch_volatility
+- rolling_volatility
 - yesterday_volatility
 - feature_values
 - feature_importance
