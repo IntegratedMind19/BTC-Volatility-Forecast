@@ -6,7 +6,6 @@
 
 **Forecast Inputs**
 - today_garch_volatility
-- rolling_volatility
 - yesterday_volatility
 - feature_values
 - feature_importance
