@@ -1,6 +1,8 @@
 **Prediction**
 - predicted_volatility
-- relative_volatility
+- predicted_volatility_percentile
+- low_threshold
+- high_threshold
 - risk_level
 - volatility_regime
 
