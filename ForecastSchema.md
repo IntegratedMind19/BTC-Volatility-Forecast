@@ -1,7 +1,7 @@
 **Prediction**
-- predicted_volatility
-- predicted_volatility_percentile
+- predicted *(predicted volatility)*
 - risk_level
+- monthly_avg *(monthly average volatility)*
 - volatility_regime
 
 **Forecast Inputs**
