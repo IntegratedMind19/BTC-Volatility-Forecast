@@ -27,7 +27,7 @@
 
 **Confidence**
 - confidence_level
-- confidence_score
+- confidence_index
 - volatility_regime_percentile
 - persistence_percentile
 - ensemble_uncertainty
