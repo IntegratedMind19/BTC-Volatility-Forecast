@@ -15,7 +15,7 @@
 - monthly_max
 - monthly_min
 - trend
-- persistence_index
+- persistence
 
 **market_context**
 - news
