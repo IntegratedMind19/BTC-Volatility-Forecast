@@ -29,7 +29,7 @@
 - confidence_index
 - volatility_regime_percentile
 - persistence_percentile
-- ensemble_uncertainty
+- ensemble_uncertainty_percentile
 
 **llm_generated_outputs**
 - feature_interpretation
