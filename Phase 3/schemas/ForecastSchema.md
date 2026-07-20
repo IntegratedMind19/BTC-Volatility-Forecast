@@ -1,16 +1,16 @@
-**Prediction**
+**prediction**
 - predicted_volatility
 - risk_level
 - volatility_regime
 
-**Forecast Inputs**
+**forecast_inputs**
 - today_garch_volatility
 - rolling_volatility
 - yesterday_volatility
 - feature_values
 - feature_importance
 
-**Historical Analysis**
+**historical_analysis**
 - monthly_average
 - monthly_max
 - monthly_min
@@ -18,27 +18,27 @@
 - trend_strength #strong/medium/weak
 - persistence_index
 
-**Market Context**
+**market_context**
 - news
 - interest_rates
 - ETF_activity
 - regulations
 - sentiment
 
-**Confidence**
+**confidence**
 - confidence_level
 - confidence_index
 - volatility_regime_percentile
 - persistence_percentile
 - ensemble_uncertainty
 
-**LLM-Generated Outputs**
+**llm_generated_outputs**
 - feature_interpretation
 - historical_trend_summary
 - market_context_summary
 - risk_guidance
 - confidence_explanation
 
-**Metadata**
+**metadata**
 - timestamp
 - model_version
