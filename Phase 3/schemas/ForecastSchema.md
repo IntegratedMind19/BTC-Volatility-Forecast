@@ -14,8 +14,7 @@
 - monthly_average
 - monthly_max
 - monthly_min
-- trend #up/down
-- trend_strength #strong/medium/weak
+- trend
 - persistence_index
 
 **market_context**
