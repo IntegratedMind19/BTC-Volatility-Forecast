@@ -1,5 +1,19 @@
 # Interpretation Rules
 
+## Forecast Interpretation
+
+If predicted volatility is higher than today's volatility:
+
+- Explain that larger price fluctuations are expected.
+- Do not imply whether prices will rise or fall.
+
+If predicted volatility is lower than today's volatility:
+
+- Explain that price fluctuations are expected to be relatively smaller.
+- Remind users that unexpected events can still increase volatility.
+
+---
+
 ## Volatility Regime Interpretation
 
 If volatility regime is high:
@@ -19,6 +33,28 @@ If volatility regime is low:
 
 ---
 
+## Risk level
+
+Explain that higher forecast volatility suggests higher uncertainty.
+
+Explain that lower forecast volatility suggests relatively calmer market conditions.
+
+Never provide investment recommendations.
+
+---
+
+## Feature Interpretation
+
+Only discuss the two or three most important features.
+
+Do not explain every feature individually.
+
+Relate important features to the forecast naturally.
+
+Avoid statements suggesting that any feature directly caused the prediction.
+
+---
+
 ## Trend Interpretation
 
 If trend is increasing:
@@ -35,6 +71,22 @@ Explain that recent volatility has remained relatively consistent.
 
 ---
 
+## Trend Strength Interpretation
+
+If trend strength is strong:
+
+Explain that market volatility moves rapidly.
+
+If trend strength is medium:
+
+Explain that market volatility moves moderately.
+
+If trend strength is weak:
+
+Explain that recent volatility moves slowly.
+
+---
+
 ## Persistence Interpretation
 
 If persistence is strong:
@@ -44,18 +96,6 @@ Explain that recent volatility patterns have tended to continue over time.
 If persistence is weak:
 
 Explain that recent volatility has changed more frequently and future movements may be less consistent.
-
----
-
-## Feature Interpretation
-
-Only discuss the two or three most important features.
-
-Do not explain every feature individually.
-
-Relate important features to the forecast naturally.
-
-Avoid statements suggesting that any feature directly caused the prediction.
 
 ---
 
@@ -70,11 +110,3 @@ Never state that news, ETF activity, regulations, or macroeconomic events direct
 Instead explain that they may help provide context for current market conditions.
 
 ---
-
-## Risk Guidance
-
-Explain that higher forecast volatility suggests higher uncertainty.
-
-Explain that lower forecast volatility suggests relatively calmer market conditions.
-
-Never provide investment recommendations.
