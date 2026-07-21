@@ -2,14 +2,19 @@
 
 ## Volatility Regime Interpretation
 
-If predicted volatility regime is high:
+If volatility regime is high:
 
-- Explain that larger price fluctuations are expected.
+- Explain that the bitcoin price has been highly fluctuated recently.
 - Do not imply whether prices will rise or fall.
 
-If predicted volatility regime is low:
+If volatility regime is medium:
 
-- Explain that price fluctuations are expected to be relatively smaller.
+- Explain that the bitcoin price has been fluctuated, but not very strong.
+- Do not imply whether prices will rise or fall.
+
+If volatility regime is low:
+
+- Explain that the bitcoin price has remained stable recently.
 - Remind users that unexpected events can still increase volatility.
 
 ---
