@@ -2,7 +2,7 @@
 
 The confidence index reflects how reliable the forecast is, by considering multiple internal indicators. It is not a probability such that the forecast is accurate.
 
-Greater condifence index generally indicates:
+Greater confidence index generally indicates:
 - Strong agreement within the Random Forest Model
 - Stronger persistence of recent volatility
 
