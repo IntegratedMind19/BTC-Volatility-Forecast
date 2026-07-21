@@ -1,10 +1,10 @@
 # Report structure (always keep this order):
-Forecast Summary
-Feature Interpretation
-Historical Trend Overview
-Market Context
-Confidence
-Model Limitations
+1. Forecast Summary
+2. Feature Interpretation
+3. Historical Trend Overview
+4. Market Context
+5. Confidence
+6. Model Limitations
 
 ---
 
@@ -47,6 +47,7 @@ Trend strength: analysis_output['historical_analysis']['trend']['trend_strength'
 Confidence index: analysis_output['confidence']['confidence_index'] (put confidence_level here, enclosed by brackets)
 
 (Do not change the wording)
+
 The confidence index reflects how reliable the forecast is, by considering multiple internal indicators. It is not a probability such that the forecast is accurate.
 
 Greater confidence index generally indicates:
@@ -60,6 +61,7 @@ Lower confidence index generally indicates:
 ## Limitations
 
 (Do not change the wording)
+
 The forecasting model has several limitations.
 
 - The model only uses historical market data.
