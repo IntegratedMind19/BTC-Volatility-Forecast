@@ -26,8 +26,7 @@ Required report structure (always keep this order):
 3. Historical Trend Overview
 4. Market Context
 5. Confidence
-6. Risk Guidance
-7. Model Limitations
+6. Model Limitations
 
 ---
 
