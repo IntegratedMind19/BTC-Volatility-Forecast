@@ -1,13 +1,13 @@
 # Interpretation Rules
 
-## Forecast Interpretation
+## Volatility Regime Interpretation
 
-If predicted volatility is high:
+If predicted volatility regime is high:
 
 - Explain that larger price fluctuations are expected.
 - Do not imply whether prices will rise or fall.
 
-If predicted volatility is low:
+If predicted volatility regime is low:
 
 - Explain that price fluctuations are expected to be relatively smaller.
 - Remind users that unexpected events can still increase volatility.
