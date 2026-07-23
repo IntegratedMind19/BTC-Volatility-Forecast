@@ -29,6 +29,7 @@ Required report structure (always keep this order):
 4. Market Context
 5. Confidence
 6. Model Limitations
+7. Metadata
 
 ---
 
