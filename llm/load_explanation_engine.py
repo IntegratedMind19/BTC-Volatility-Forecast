@@ -8,5 +8,5 @@ def load_knowledge_base(directory: str | Path) -> str:
   for file_path in markdown_files:
     content = file_path.read_text(encoding="utf-8").strip()
     sections.append(f"# Source: {file_path.name}\n\n{content}")
-    return "\n\n---\n\n".join(sections)
+  return "\n\n---\n\n".join(sections)
     
