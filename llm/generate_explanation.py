@@ -1,3 +1,5 @@
+from openai import OpenAI
+
 def generate_explanation(client: OpenAI, llm_input: str, model: str):
   response = client.responses.create(
     model = model,
