@@ -1,4 +1,4 @@
-# Report structure (always keep this order):
+# Report structure (strictly follow this order):
 1. Forecast Summary
 2. Feature Interpretation
 3. Historical Trend Overview
@@ -11,7 +11,7 @@
 
 ---
 
-# Detailed output format
+# Detailed output format (strictly follow the formatting)
 
 ## Forecast Summary
 
