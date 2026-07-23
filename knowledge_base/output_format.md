@@ -5,6 +5,7 @@
 4. Market Context
 5. Confidence
 6. Model Limitations
+
 (maintain the section name)
 
 ---
