@@ -13,5 +13,6 @@ def build_llm_inputs(prompt_template: str, knowledge_base: str, analysis_output:
 
   {analysis_output}
 
+  The market_context information is not available yet, so skip the market_context section first in the report.
   Generate a complete report now.
   '''
