@@ -12,8 +12,8 @@ if not api_key:
 
 client = OpenAI(api_key = api_key)
 
-knowledge_base_dir = "knowledge_base"
-prompt_template_dir = "prompt"
+knowledge_base_dir = "../knowledge_base"
+prompt_template_dir = "../prompt"
 analysis_output = {'prediction': {'predicted_volatility': 0.022121417255959584,
   'forecast_relativity': 'higher',
   'risk_level': 'low',
