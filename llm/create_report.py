@@ -12,7 +12,7 @@ def create_report(
   knowledge_base = kb.load_knowledge_base(knowledge_base_dir)
   prompt_template = pt.load_prompt_template(prompt_template_dir)
   llm_input = llm_inputs.build_llm_inputs(prompt_template, knowledge_base, analysis_output)
-  print(llm_inputs)
+  print(llm_input)
   response = ge.generate_explanation(client, llm_input, model)
   return response
                     
