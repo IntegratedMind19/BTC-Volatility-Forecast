@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 from pathlib import Path
+import create_report
 
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
