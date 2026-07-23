@@ -15,12 +15,19 @@
 
 ## Forecast Summary
 
-Predicted volatility: analysis_output['prediction']['predicted_volatility'] ('higher' or 'lower' based on analysis_output['prediction']['forecast_relativity'])
+Predicted volatility: analysis_output['prediction']['predicted_volatility'] ('higher' or 'lower' based on analysis_output['prediction']['forecast_relativity']. State explicitly whether higher/lower than today's volatility)
+
 (Provide interpretation here, based on analysis_output['prediction']['forecast_relativity']. Refer to ./interpretation_rules.md for each condition.)
 
 Volatility regime: analysis_output['prediction']['volatility_regime'] (Provide interpretation here, enclosed by brackets. Refer to ./interpretation_rules.md for each condition.)
 
 Risk level: analysis_output['prediction']['risk_level'] (Provide interpretation here, enclosed by brackets. Refer to ./interpretation_rules.md for each condition.)
+
+(Provide brief conclusion here, strictly from the obtained result.
+
+Example:
+
+The predicted volatility of 2.21% is slightly higher than today's estimated volatility (2.17%), but remains below the recent monthly average (2.32%). Consequently, the overall volatility regime and risk level remain classified as Low.)
 
 ## Feature Interpretation
 
@@ -40,7 +47,12 @@ Trend direction: analysis_output['historical_analysis']['trend']['trend']
 Trend strength: analysis_output['historical_analysis']['trend']['trend_strength'] (only display this if the trend_strength info is available)
 
 (Based on trend direction only, provide explanation here by adhering to the guideline ./interpretation_rules.md)
+
 (If trend strength information is available, provide explanation here by adhering to the guideline ./interpretation_rules.md)
+
+Persistence: analysis_output['historical_analysis']['persistence']
+
+(Explain the connection with the resulting forecast, whether the result is consistent or not.)
 
 ## Market Context
 
@@ -61,6 +73,12 @@ Greater confidence index generally indicates:
 Lower confidence index generally indicates:
 - greater disagreement among model components
 - less consistent historical volatility (weak volatility persistence)
+
+(Put explanation here, stating whether the confidence is high/medium/low, and briefly explain the implication of the result.
+
+Example:
+
+The current confidence index of 85.12 is classified as high, suggesting relatively strong agreement among the model's internal indicators. Strong volatility persistence further supports the stability of the forecast.)
 
 ## Model Limitations
 
