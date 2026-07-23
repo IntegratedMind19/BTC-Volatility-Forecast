@@ -3,6 +3,7 @@ import load_explanation_engine as kb
 import load_prompt_template as pt
 import llm_inputs
 import generate_explanation as ge
+
 def create_report(
   knowledge_base_dir: str | Path, prompt_template_dir: str | Path, analysis_output: dict,
   client: OpenAI, model: str
