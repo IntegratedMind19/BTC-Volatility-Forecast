@@ -1,8 +1,7 @@
 from pathlib import Path
 def load_knowledge_base(directory: str | Path) -> str:
   directory = Path(directory)
-  if not directory.exists():
-    raise FileNotFoundError(f"Current directory is {Path.cwd()}")
+  print(Path.cwd())
   markdown_files = sorted(directory.glob("*.md"))
   sections = list()
   for file_path in markdown_files:
