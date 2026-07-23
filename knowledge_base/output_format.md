@@ -16,7 +16,7 @@
 
 ## Forecast Summary
 
-Predicted volatility: analysis_output['prediction']['predicted_volatility'] ('higher' or 'lower' based on analysis_output['prediction']['forecast_relativity']. State explicitly whether higher/lower than today's volatility)
+Predicted volatility: analysis_output ['prediction'] ['predicted_volatility'] ('higher' or 'lower' based on analysis_output ['prediction'] ['forecast_relativity']. State explicitly whether higher/lower than today's volatility)
 
 (Provide interpretation here, based on analysis_output['prediction']['forecast_relativity']. Refer to ./interpretation_rules.md for each condition.)
 
@@ -24,7 +24,7 @@ Volatility regime: analysis_output['prediction']['volatility_regime'] (Provide i
 
 Risk level: analysis_output['prediction']['risk_level'] (Provide interpretation here, enclosed by brackets. Refer to ./interpretation_rules.md for each condition.)
 
-(Provide brief conclusion here, strictly from the obtained result.
+(Provide brief conclusion here, strictly from the obtained result.)
 
 Example:
 
