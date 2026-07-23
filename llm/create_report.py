@@ -1,4 +1,5 @@
 from pathlib import Path
+from openai import OpenAI
 import load_explanation_engine as kb
 import load_prompt_template as pt
 import llm_inputs
