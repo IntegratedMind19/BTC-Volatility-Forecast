@@ -5,6 +5,7 @@
 4. Market Context
 5. Confidence
 6. Model Limitations
+7. Metadata
 
 (maintain the section name)
 
@@ -60,7 +61,7 @@ Lower confidence index generally indicates:
 - greater disagreement among model components
 - less consistent historical volatility (weak volatility persistence)
 
-## Limitations
+## Model Limitations
 
 (Do not change the wording)
 
@@ -71,3 +72,7 @@ The forecasting model has several limitations.
 - Unexpected events may rapidly change market volatility.
 - The model predicts volatility rather than future price direction.
 - Feature importance indicates model influence rather than causal relationships.
+
+## Metadata
+Time generated: <YYYY-MM-DD HH:MM:SS> (GMT)
+Model version: (Use the information from analysis_output)
