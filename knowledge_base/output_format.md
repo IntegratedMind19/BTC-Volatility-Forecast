@@ -101,6 +101,6 @@ Example: (Change some informations or wordings if appropriate)
 Overall, the model forecasts another day of relatively low Bitcoin volatility, with expected market fluctuations remaining close to recent historical levels. Although volatility is forecast to increase slightly compared with today, the increase is modest and remains consistent with the current low-volatility regime. Users should interpret this forecast alongside external market developments, which are not incorporated directly into the prediction model.)
 
 ## Metadata
-Time generated: <YYYY-MM-DD HH:MM:SS> (GMT)
+Timestamp: <YYYY-MM-DD HH:MM:SS> (GMT)
 
 Model version: (Use the information from analysis_output)
