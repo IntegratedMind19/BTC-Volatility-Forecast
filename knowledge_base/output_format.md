@@ -5,7 +5,8 @@
 4. Market Context
 5. Confidence
 6. Model Limitations
-7. Metadata
+7. Overall Summary
+8. Metadata
 
 (maintain the section name)
 
@@ -67,7 +68,7 @@ Confidence index: analysis_output['confidence']['confidence_index'] (put confide
 The confidence index reflects how reliable the forecast is, by considering multiple internal indicators. It is not a probability such that the forecast is accurate.
 
 Greater confidence index generally indicates:
-- Strong agreement within the Random Forest Model
+- Strong agreement among the model's internal estimates
 - Stronger persistence of recent volatility
 
 Lower confidence index generally indicates:
@@ -91,6 +92,13 @@ The forecasting model has several limitations.
 - Unexpected events may rapidly change market volatility.
 - The model predicts volatility rather than future price direction.
 - Feature importance indicates model influence rather than causal relationships.
+
+## Overall Summary
+(Provide a brief summary based on the obtained result and interpretations.
+
+Example: (Change some informations or wordings if appropriate)
+
+Overall, the model forecasts another day of relatively low Bitcoin volatility, with expected market fluctuations remaining close to recent historical levels. Although volatility is forecast to increase slightly compared with today, the increase is modest and remains consistent with the current low-volatility regime. Users should interpret this forecast alongside external market developments, which are not incorporated directly into the prediction model.)
 
 ## Metadata
 Time generated: <YYYY-MM-DD HH:MM:SS> (GMT)
