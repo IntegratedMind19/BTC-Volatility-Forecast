@@ -1,12 +1,15 @@
 from pathlib import Path
-
+import load_explanation_engine as kb
+import load_prompt_template as pt
+import llm_inputs
+import generate_explanation as ge
 def create_report(
   knowledge_base_dir: str | Path, prompt_template_dir: str | Path, analysis_output: dict,
   client: OpenAI, model: str
 ) -> str:
-  knowledge_base = load_knowledge_base(knowledge_base_dir)
-  prompt_template = load_prompt_template(prompt_template_dir)
-  llm_input = build_llm_inputs(prompt_template, knowledge_base, analysis_output)
-  response = generate_explanation(client, llm_input, model)
+  knowledge_base = kb.load_knowledge_base(knowledge_base_dir)
+  prompt_template = pt.load_prompt_template(prompt_template_dir)
+  llm_input = llm_inputs.build_llm_inputs(prompt_template, knowledge_base, analysis_output)
+  response = ge.generate_explanation(client, llm_input, model)
   return response
                     
