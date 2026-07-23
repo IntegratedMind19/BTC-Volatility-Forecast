@@ -16,13 +16,13 @@
 
 ## Forecast Summary
 
-Predicted volatility: analysis_output ['prediction'] ['predicted_volatility'] ('higher' or 'lower' based on analysis_output ['prediction'] ['forecast_relativity']. State explicitly whether higher/lower than today's volatility)
+Predicted volatility: analysis_output ['prediction'] ['predicted_volatility'] (higher or lower based on analysis_output ['prediction'] ['forecast_relativity']. State explicitly whether higher/lower than today's volatility)
 
-(Provide interpretation here, based on analysis_output['prediction']['forecast_relativity']. Refer to ./interpretation_rules.md for each condition.)
+(Provide interpretation here, based on analysis_output ['prediction'] ['forecast_relativity']. Refer to ./interpretation_rules.md for each condition.)
 
-Volatility regime: analysis_output['prediction']['volatility_regime'] (Provide interpretation here, enclosed by brackets. Refer to ./interpretation_rules.md for each condition.)
+Volatility regime: analysis_output ['prediction'] ['volatility_regime'] (Provide interpretation here, enclosed by brackets. Refer to ./interpretation_rules.md for each condition.)
 
-Risk level: analysis_output['prediction']['risk_level'] (Provide interpretation here, enclosed by brackets. Refer to ./interpretation_rules.md for each condition.)
+Risk level: analysis_output ['prediction'] ['risk_level'] (Provide interpretation here, enclosed by brackets. Refer to ./interpretation_rules.md for each condition.)
 
 (Provide brief conclusion here, strictly from the obtained result.)
 
@@ -37,21 +37,21 @@ Do not give explanations on individual features)
 
 ## Historical Trend Overview
 
-Monthly average volatility: analysis_output['historical_analysis']['monthly_average']
+Monthly average volatility: analysis_output ['historical_analysis'] ['monthly_average']
 
-Monthly maximum volatility: analysis_output['historical_analysis']['monthly_max']
+Monthly maximum volatility: analysis_output ['historical_analysis'] ['monthly_max']
 
-Monthly minimum volatility: analysis_output['historical_analysis']['monthly_min']
+Monthly minimum volatility: analysis_output ['historical_analysis'] ['monthly_min']
 
-Trend direction: analysis_output['historical_analysis']['trend']['trend']
+Trend direction: analysis_output ['historical_analysis'] ['trend'] ['trend']
 
-Trend strength: analysis_output['historical_analysis']['trend']['trend_strength'] (only display this if the trend_strength info is available)
+Trend strength: analysis_output ['historical_analysis'] ['trend'] ['trend_strength'] (only display this if the trend_strength info is available)
 
 (Based on trend direction only, provide explanation here by adhering to the guideline ./interpretation_rules.md)
 
 (If trend strength information is available, provide explanation here by adhering to the guideline ./interpretation_rules.md)
 
-Persistence: analysis_output['historical_analysis']['persistence']
+Persistence: analysis_output ['historical_analysis'] ['persistence']
 
 (Explain the connection with the resulting forecast, whether the result is consistent or not.)
 
@@ -61,7 +61,7 @@ Persistence: analysis_output['historical_analysis']['persistence']
 
 ## Confidence
 
-Confidence index: analysis_output['confidence']['confidence_index'] (put confidence_level here, enclosed by brackets)
+Confidence index: analysis_output ['confidence'] ['confidence_index'] (put confidence_level here, enclosed by brackets)
 
 (Do not change the wording)
 
