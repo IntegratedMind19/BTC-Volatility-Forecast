@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 from pathlib import Path
-import create_report.create_report
+import create_report
 
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
@@ -51,4 +51,4 @@ analysis_output = {'prediction': {'predicted_volatility': 0.022121417255959584,
   'ensemble_uncertainty_percentile': 29.67845659163987},
  'metadata': {'timestamp': '2026-07-23 05:33:31', 'model_version': '1.0'}}
 
-response = create_report(knowledge_base_dir, prompt_template_dir, analysis_output, client, "gpt-5.5")
+response = create_report.create_report(knowledge_base_dir, prompt_template_dir, analysis_output, client, "gpt-5.5")
