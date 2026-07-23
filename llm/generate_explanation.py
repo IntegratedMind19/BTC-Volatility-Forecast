@@ -1,6 +1,6 @@
-def generate_explanation(client: OpenAI, llm_input: str):
+def generate_explanation(client: OpenAI, llm_input: str, model: str):
   response = client.responses.create(
-    model = "gpt-5.5"
+    model = model
     input = llm_input
   )
   if not response:
