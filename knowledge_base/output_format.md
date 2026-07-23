@@ -102,4 +102,5 @@ Overall, the model forecasts another day of relatively low Bitcoin volatility, w
 
 ## Metadata
 Time generated: <YYYY-MM-DD HH:MM:SS> (GMT)
+
 Model version: (Use the information from analysis_output)
