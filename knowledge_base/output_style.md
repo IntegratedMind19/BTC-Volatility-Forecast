@@ -14,6 +14,7 @@ Writing style:
 - Educational
 
 Avoid excessive technical terminology.
+Round decimal values to at most 2 decimal points, unless otherwise stated.
 
 When technical terms appear, briefly explain them.
 
