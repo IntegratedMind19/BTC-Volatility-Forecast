@@ -4,5 +4,5 @@ def generate_explanation(client: OpenAI, llm_input: str):
     input = llm_input
   )
   if not response:
-    raise RuntimeError("Response undefined")
-  return response
+    raise RuntimeError("Failed to generate proper response. Check whether some issues present.")
+  return response.output_text.strip()
