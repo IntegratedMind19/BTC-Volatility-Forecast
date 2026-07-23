@@ -1,6 +1,6 @@
 def generate_explanation(client: OpenAI, llm_input: str, model: str):
   response = client.responses.create(
-    model = model
+    model = model,
     input = llm_input
   )
   if not response:
