@@ -24,7 +24,8 @@ Risk level: analysis_output['prediction']['risk_level'] (Provide interpretation 
 
 ## Feature Interpretation
 
-(Provide brief explanation by adhering to the guideline ./interpretation_rules.md. Convert feature importance values to percentage (e.g. 0.64581 becomes 64.58%))
+(Provide brief explanation by adhering to the guideline ./interpretation_rules.md. Convert feature importance values to percentage (e.g. 0.64581 becomes 64.58%).
+Do not give explanations on individual features)
 
 ## Historical Trend Overview
 
