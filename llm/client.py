@@ -52,3 +52,5 @@ analysis_output = {'prediction': {'predicted_volatility': 0.022121417255959584,
  'metadata': {'timestamp': '2026-07-23 05:33:31', 'model_version': '1.0'}}
 
 response = create_report.create_report(knowledge_base_dir, prompt_template_dir, analysis_output, client, "gpt-5.5")
+
+print(response)
