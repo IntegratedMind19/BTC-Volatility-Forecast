@@ -20,11 +20,11 @@ File: output_format.md
 
 Predicted volatility: analysis_output ['prediction'] ['predicted_volatility'] (higher or lower based on analysis_output ['prediction'] ['forecast_relativity']. State explicitly whether higher/lower than today's volatility)
 
-(Provide interpretation here, based on analysis_output ['prediction'] ['forecast_relativity']. Refer to ./interpretation_rules.md for each condition.)
+(Provide interpretation here, based on analysis_output ['prediction'] ['forecast_relativity']. Refer to interpretation_rules.md for each condition.)
 
-Volatility regime: analysis_output ['prediction'] ['volatility_regime'] (Provide interpretation here, enclosed by brackets. Refer to ./interpretation_rules.md for each condition.)
+Volatility regime: analysis_output ['prediction'] ['volatility_regime'] (Provide interpretation here, enclosed by brackets. Refer to interpretation_rules.md for each condition.)
 
-Risk level: analysis_output ['prediction'] ['risk_level'] (Provide interpretation here, enclosed by brackets. Refer to ./interpretation_rules.md for each condition.)
+Risk level: analysis_output ['prediction'] ['risk_level'] (Provide interpretation here, enclosed by brackets. Refer to interpretation_rules.md for each condition.)
 
 (Provide brief conclusion here, strictly from the obtained result.)
 
@@ -34,7 +34,7 @@ The predicted volatility of 2.21% is slightly higher than today's estimated vola
 
 ## Feature Interpretation
 
-(Provide brief explanation by adhering to the guideline ./interpretation_rules.md. Convert feature importance values to percentage (e.g. 0.64581 becomes 64.58%).
+(Provide brief explanation by adhering to the guideline interpretation_rules.md. Convert feature importance values to percentage (e.g. 0.64581 becomes 64.58%).
 Do not give explanations on individual features)
 
 ## Historical Trend Overview
@@ -49,9 +49,9 @@ Trend direction: analysis_output ['historical_analysis'] ['trend'] ['trend']
 
 Trend strength: analysis_output ['historical_analysis'] ['trend'] ['trend_strength'] (only display this if the trend_strength info is available)
 
-(Based on trend direction only, provide explanation here by adhering to the guideline ./interpretation_rules.md)
+(Based on trend direction only, provide explanation here by adhering to the guideline interpretation_rules.md)
 
-(If trend strength information is available, provide explanation here by adhering to the guideline ./interpretation_rules.md)
+(If trend strength information is available, provide explanation here by adhering to the guideline interpretation_rules.md)
 
 Persistence: analysis_output ['historical_analysis'] ['persistence']
 
@@ -59,7 +59,7 @@ Persistence: analysis_output ['historical_analysis'] ['persistence']
 
 ## Market Context
 
-(Provide brief explanation by adhering to the guideline ./interpretation_rules.md)
+(Provide brief explanation by adhering to the guideline interpretation_rules.md)
 
 ## Confidence
 
