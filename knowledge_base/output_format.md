@@ -53,7 +53,7 @@ Trend strength: analysis_output ['historical_analysis'] ['trend'] ['trend_streng
 
 (If trend strength information is available, provide explanation here by adhering to the guideline interpretation_rules.md)
 
-Persistence: analysis_output ['historical_analysis'] ['persistence']
+Persistence: analysis_output ['historical_analysis'] ['persistence'] (state that the persistence index is ranged from -1 to 1)
 
 (Explain the connection with the resulting forecast, whether the result is consistent or not.)
 
