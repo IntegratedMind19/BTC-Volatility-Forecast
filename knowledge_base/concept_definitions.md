@@ -42,6 +42,12 @@ Trend describes whether recent volatility has generally been increasing, decreas
 
 ---
 
+## Trend strength
+
+Trend strength describes how rapid the change of volatility over the last 30 days. Stronger trend strength indicates more rapid change, meanwhile weaker trend strength indicates slower change.
+
+---
+
 ## Persistence
 
 Persistence describes whether recent volatility tends to continue over time. Strong persistence means volatility is likely to remain at similar levels in the near term (e.g., if today's volatility is high, then tomorrow's volatility is likely to be high).
