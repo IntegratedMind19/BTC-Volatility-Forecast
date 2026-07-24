@@ -1,6 +1,74 @@
 {
-  "volatility": "Volatility measures how much Bitcoin's price is expected to fluctuate over a period of time. High volatility indicates larger price movements, while low volatility indicates more stable prices. Volatility describes the magnitude of price changes, instead of whether prices will increase or decrease.",
-  "predicted_volatility": "Predicted volatility is the model's estimate of Bitcoin's volatility for the next trading day. It represents expected market uncertainty rather than expected returns.",
-  "garch_volatility": "GARCH volatility estimates the current market volatility using historical return patterns. It reflects recent market conditions and serves as one of the inputs to the forecasting model.",
-  "rolling_volatility": "Rolling volatility measures recent market variability over a fixed historical window. Higher rolling volatility suggests that recent price movements have been more volatile."
+"Volatility": "Volatility measures the magnitude of Bitcoin price fluctuations over a period of time. High volatility indicates larger price movements, while low volatility indicates more stable price movements. Volatility describes the size of price changes, not whether the price will increase or decrease.",
+
+"Predicted Volatility": "Predicted volatility is the model's estimate of Bitcoin volatility for the next trading day. It represents the expected magnitude of price fluctuations rather than the expected price direction or return.",
+
+"GARCH Volatility": "GARCH volatility is an estimate of market volatility derived from historical return patterns. It captures volatility clustering by placing greater emphasis on recent volatility conditions and past shocks.",
+
+"Rolling Volatility": "Rolling volatility measures the variability of Bitcoin returns over a fixed historical window. A higher value indicates that returns have fluctuated more widely during that period.",
+
+"Volatility Regime": "The volatility regime classifies current volatility relative to its recent historical distribution.\nHigh: volatility is above its normal recent level.\nMedium: volatility is close to its normal recent level.\nLow: volatility is below its normal recent level.",
+
+"Trend": "Trend describes whether volatility has generally been increasing, decreasing, or remaining relatively stable over a specified recent period.",
+
+"Trend Strength": "Trend strength describes how rapidly volatility has changed over the selected historical period. A stronger trend indicates a faster and more consistent change, while a weaker trend indicates a slower or less consistent change.",
+
+"Return": "Return measures the proportional change in Bitcoin's price between two consecutive observations. In this project, log return is calculated as the difference between the natural logarithm of today's price and the natural logarithm of the previous day's price. A positive return indicates that the price increased, while a negative return indicates that it decreased.",
+
+"Persistence": "Persistence describes the historical tendency of volatility to remain similar across consecutive periods. Strong persistence indicates that high- or low-volatility conditions have tended to continue from one day to the next. It does not guarantee that the same pattern will continue in the future.",
+
+"Confidence Index": "The confidence index measures the internal consistency of the forecast using indicators such as ensemble agreement and volatility persistence. A higher value indicates stronger agreement among the system's internal indicators. It is not a probability of accuracy and does not guarantee that the forecast will be correct.",
+
+"Features": {
+"return_lag_1": {
+"name": "Yesterday's Return",
+"definition": "Bitcoin's log return from the previous trading day.",
+"base": ["Return"]
+},
+
+"return_lag_2": {
+  "name": "Return Two Days Ago",
+  "definition": "Bitcoin's log return from two trading days before the forecast date.",
+  "base": ["Return"]
+},
+
+"garch_vol_lag_1": {
+  "name": "Yesterday's GARCH Volatility",
+  "definition": "The GARCH volatility estimate from the previous trading day.",
+  "base": ["GARCH Volatility"]
+},
+
+"garch_vol_lag_2": {
+  "name": "GARCH Volatility Two Days Ago",
+  "definition": "The GARCH volatility estimate from two trading days before the forecast date.",
+  "base": ["GARCH Volatility"]
+},
+
+"rolling_mean_7": {
+  "name": "7-Day Average Return",
+  "definition": "The average Bitcoin return calculated over the most recent seven trading days.",
+  "base": ["Return"]
+},
+
+"rolling_std_3": {
+  "name": "3-Day Rolling Volatility",
+  "definition": "The standard deviation of Bitcoin returns calculated over the most recent three trading days.",
+  "base": ["Rolling Volatility", "Return"]
+},
+
+"rolling_std_7": {
+  "name": "7-Day Rolling Volatility",
+  "definition": "The standard deviation of Bitcoin returns calculated over the most recent seven trading days.",
+  "base": ["Rolling Volatility", "Return"]
+},
+
+"rolling_std_14": {
+  "name": "14-Day Rolling Volatility",
+  "definition": "The standard deviation of Bitcoin returns calculated over the most recent fourteen trading days.",
+  "base": ["Rolling Volatility", "Return"]
+}
+
+},
+
+"Feature Importance": "Feature importance indicates the relative influence of each input feature within the trained Random Forest model. A higher importance value means that the feature contributed more to the model's decision-making across its trees. Feature importance does not establish causation and does not show whether a feature increased or decreased an individual forecast."
 }
