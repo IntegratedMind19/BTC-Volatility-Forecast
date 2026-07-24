@@ -1,3 +1,5 @@
+File: output_format.md
+
 # Report structure (strictly follow this order):
 1. Forecast Summary
 2. Feature Interpretation
