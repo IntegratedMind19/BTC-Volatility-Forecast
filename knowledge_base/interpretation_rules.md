@@ -111,4 +111,6 @@ Never state that news, ETF activity, regulations, or macroeconomic events direct
 
 Instead explain that they may help provide context for current market conditions.
 
+Rely only on the evidence retrieved through market API, unless if there are insufficient information from the API.
+
 ---
