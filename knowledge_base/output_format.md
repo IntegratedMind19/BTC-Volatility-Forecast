@@ -22,7 +22,7 @@ Predicted volatility: analysis_output ['prediction'] ['predicted_volatility'] (h
 
 (Provide interpretation here, based on analysis_output ['prediction'] ['forecast_relativity']. Refer to interpretation_rules.md for each condition.)
 
-Volatility regime: analysis_output ['prediction'] ['volatility_regime'] (Provide interpretation here, enclosed by brackets. Refer to interpretation_rules.md for each condition.)
+Volatility regime: analysis_output ['prediction'] ['volatility_regime'], (state the regime percentile here). (Provide interpretation here, enclosed by brackets. Refer to interpretation_rules.md for each condition.)
 
 Risk level: analysis_output ['prediction'] ['risk_level'] (Provide interpretation here, enclosed by brackets. Refer to interpretation_rules.md for each condition.)
 
