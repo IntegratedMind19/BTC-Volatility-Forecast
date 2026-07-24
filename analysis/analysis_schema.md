@@ -17,26 +17,12 @@
 - trend
 - persistence
 
-**market_context**
-- news
-- interest_rates
-- ETF_activity
-- regulations
-- sentiment
-
 **confidence**
 - confidence_level
 - confidence_index
 - volatility_regime_percentile
 - persistence_percentile
 - ensemble_uncertainty_percentile
-
-**llm_generated_outputs**
-- feature_interpretation
-- historical_trend_summary
-- market_context_summary
-- risk_guidance
-- confidence_explanation
 
 **metadata**
 - timestamp
