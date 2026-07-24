@@ -75,8 +75,8 @@ Greater confidence index generally indicates:
 - Stronger persistence of recent volatility
 
 Lower confidence index generally indicates:
-- greater disagreement among model components
-- less consistent historical volatility (weak volatility persistence)
+- Greater disagreement among model components
+- Less consistent historical volatility (weak volatility persistence)
 
 (Put explanation here, stating whether the confidence is high/medium/low, and briefly explain the implication of the result.
 
