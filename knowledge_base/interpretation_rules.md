@@ -103,14 +103,15 @@ Explain that recent volatility has changed more frequently and future movements 
 
 ## Market Context
 
-Treat market context as additional information.
-
-Explain what is likely happening in the crypto market recently.
-
-Never state that news, ETF activity, regulations, or macroeconomic events directly produced the model prediction.
-
-Instead explain that they may help provide context for current market conditions.
-
-Rely only on the evidence retrieved through market API, unless if there are insufficient information from the API.
+1. Use only external information supplied in <market_context>.
+2. Do not invent events, values, dates, sources, or explanations.
+3. Do not claim that external events caused the model forecast.
+4. State clearly that external context was not used by the Random Forest model.
+5. Mention only materially relevant information.
+6. Preserve the distinction between publication date and observation date.
+7. If market context is unavailable, state this directly.
+8. Do not provide investment recommendations.
+9. Do not reproduce full article text.
+10. Include the source name for every external event mentioned.
 
 ---
