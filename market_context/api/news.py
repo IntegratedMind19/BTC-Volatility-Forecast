@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 import requests
 
-def retrieve_bitcoin_news():
+def retrieve_bitcoin_news(limit = 10):
   load_dotenv()
   api_key = os.getenv("ALPHA_VANTAGE_KEY")
   if not api_key:
@@ -12,7 +12,7 @@ def retrieve_bitcoin_news():
     "function": "NEWS_SENTIMENT",
     "tickers": "CRYPTO:BTC",
     "sort": "LATEST",
-    "limit": 10,
+    "limit": limit,
     "apikey": api_key
   }
   response = requests.get(base_url, params = params, timeout = 10)
