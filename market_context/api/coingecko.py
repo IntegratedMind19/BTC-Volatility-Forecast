@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 import requests
 
-def retrieve_coin_gecko_api():
+def retrieve_bitcoin_market_data():
   load_dotenv()
   api_key = os.getenv("CG_API_KEY")
   base_url = "https://api.coingecko.com/api/v3/simple/price"
