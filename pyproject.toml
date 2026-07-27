@@ -12,3 +12,7 @@ description = "Building an analysis_module package"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [] # Add external pip packages here if needed
+
+[tool.setuptools.packages.find]
+where = ["."]  # Look in the root directory
+include = ["*"] # Include all folders
