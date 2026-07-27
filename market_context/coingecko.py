@@ -25,7 +25,7 @@ def retrieve_bitcoin_market_data():
             "price_change_24h_pct": bitcoin.get("usd_24h_change"),
             "volume_24h_usd": bitcoin.get("usd_24h_vol"),
             "market_cap_usd": bitcoin.get("usd_market_cap"),
-            "last_updated_at": bitcoin.get("last_updated_at"),
+            "last_updated_at": bitcoin.get("last_updated_at").strftime("%Y-%m-%d %H:%M:%S"),
             "source": "CoinGecko",
     }
   except (requests.RequestException, KeyError, TypeError, ValueError) as error:
