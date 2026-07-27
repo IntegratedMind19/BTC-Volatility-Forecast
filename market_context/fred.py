@@ -21,6 +21,7 @@ def fetch_fed_data(series_id: str):
     if latest is None:
       raise RuntimeError("Observation data not found")
     return {
+      "status": "available",
       "series_id": series_id,
       "source": "FRED",
       "value": float(latest["value"]),
