@@ -15,7 +15,7 @@ def build_llm_inputs(prompt_template: str, knowledge_base: str, analysis_output:
 
   Market context:
 
-  {json.dumps(market_context, indent = 2}
+  {json.dumps(market_context, indent = 2)}
   
   Generate a complete report now.
   '''
