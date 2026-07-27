@@ -215,32 +215,31 @@ class Confidence:
 
     return {'confidence_level': self.confidence_level, 'confidence_index': self.confidence_index}
 
-forecast_input = ForecastInputs()
-pred = Prediction()
-hist_analysis = HistAnalysis()
-confidence = Confidence()
-
-analysis_output = {"prediction": {"predicted_volatility": pred.predict(),
-                                  "forecast_relativity": pred.direction,
-                                  "risk_level": pred.risk_level_judgement(),
-                                  "volatility_regime": pred.vol_regime_judgement()},
-                   "forecast_inputs": {"today_garch_volatility": float(forecast_input.all_time_volatility.iloc[-1]),
-                                       "rolling_volatility": float(forecast_input.all_time_features_data['rolling_std_14'].iloc[-1]),
-                                       "yesterday_volatility": float(forecast_input.all_time_volatility.iloc[-2]),
-                                       "feature_values": forecast_input.retrieve_features(),
-                                       "feature_importance": forecast_input.retrieve_feature_importance()},
-                   "historical_analysis": {"monthly_average": float(hist_analysis.monthly_avg),
-                                           "monthly_max": hist_analysis.monthly_max,
-                                           "monthly_min:": hist_analysis.monthly_min,
-                                           "trend": hist_analysis.trend_analysis(),
-                                           "persistence": hist_analysis.persistence_analysis()},
-                   "confidence": {"confidence_level": confidence.confidence_analysis()['confidence_level'],
-                                  "confidence_index": float(confidence.confidence_index),
-                                  "volatility_regime_percentile": float(pred.vol_regime_percentile),
-                                  "persistence_percentile": confidence.persistence,
-                                  "ensemble_uncertainty_percentile": float(confidence.tree_disagreements_percentile)},
-                   "metadata": {"timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                                "model_version": "1.0"}
-                   }
-
-print(analysis_output)
+def get_analysis_data():
+    forecast_input = ForecastInputs()
+    pred = Prediction()
+    hist_analysis = HistAnalysis()
+    confidence = Confidence()
+    
+    analysis_output = {"prediction": {"predicted_volatility": pred.predict(),
+                                      "forecast_relativity": pred.direction,
+                                      "risk_level": pred.risk_level_judgement(),
+                                      "volatility_regime": pred.vol_regime_judgement()},
+                       "forecast_inputs": {"today_garch_volatility": float(forecast_input.all_time_volatility.iloc[-1]),
+                                           "rolling_volatility": float(forecast_input.all_time_features_data['rolling_std_14'].iloc[-1]),
+                                           "yesterday_volatility": float(forecast_input.all_time_volatility.iloc[-2]),
+                                           "feature_values": forecast_input.retrieve_features(),
+                                           "feature_importance": forecast_input.retrieve_feature_importance()},
+                       "historical_analysis": {"monthly_average": float(hist_analysis.monthly_avg),
+                                               "monthly_max": hist_analysis.monthly_max,
+                                               "monthly_min:": hist_analysis.monthly_min,
+                                               "trend": hist_analysis.trend_analysis(),
+                                               "persistence": hist_analysis.persistence_analysis()},
+                       "confidence": {"confidence_level": confidence.confidence_analysis()['confidence_level'],
+                                      "confidence_index": float(confidence.confidence_index),
+                                      "volatility_regime_percentile": float(pred.vol_regime_percentile),
+                                      "persistence_percentile": confidence.persistence,
+                                      "ensemble_uncertainty_percentile": float(confidence.tree_disagreements_percentile)},
+                       "metadata": {"timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                    "model_version": "1.0"}
+                       }
