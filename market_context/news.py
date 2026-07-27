@@ -1,5 +1,6 @@
 import os
 import requests
+from typing import Any
 
 def retrieve_bitcoin_news(limit = 10):
   api_key = os.getenv("ALPHA_VANTAGE_KEY")
