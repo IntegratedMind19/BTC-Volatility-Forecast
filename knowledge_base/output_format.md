@@ -60,7 +60,16 @@ Persistence: analysis_output ['historical_analysis'] ['persistence'] (state that
 
 ## Market Context
 
-(Provide brief explanation by adhering to the guideline interpretation_rules.md)
+(Ensure the explanations adhere to ./interpretations.md)
+
+Bitcoin market activity:
+One or two sentences based on CoinGecko.
+
+Macroeconomic environment:
+One or two sentences based on FRED.
+
+Recent developments:
+Up to three relevant news items.
 
 ## Confidence
 
