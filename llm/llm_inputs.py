@@ -1,6 +1,6 @@
 import json
 
-def build_llm_inputs(prompt_template: str, knowledge_base: str, analysis_output: dict):
+def build_llm_inputs(prompt_template: str, knowledge_base: str, analysis_output: dict, market_context: dict):
   analysis_json = json.dumps(analysis_output, indent = 2)
   return f'''
   {prompt_template}
@@ -13,6 +13,9 @@ def build_llm_inputs(prompt_template: str, knowledge_base: str, analysis_output:
 
   {analysis_output}
 
-  The market_context information is not available yet, so skip the market_context section first in the report.
+  Market context:
+
+  {market_context}
+  
   Generate a complete report now.
   '''
