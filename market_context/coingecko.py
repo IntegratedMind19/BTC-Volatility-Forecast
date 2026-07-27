@@ -22,10 +22,10 @@ def retrieve_bitcoin_market_data():
     bitcoin = response.json()["bitcoin"]
     return {
             "status": "available",
-            "price_usd": {"value": bitcoin.get("usd"), "units": "USD"},
-            "price_change_24h_pct": {"value": round(bitcoin.get("usd_24h_change"), 2), "units": "%"},
-            "volume_24h_usd": {"value": round(bitcoin.get("usd_24h_vol")), "units": "USD"},
-            "market_cap_usd": {"value": round(bitcoin.get("usd_market_cap")), "units": "USD"},
+            "price_usd": {"value": bitcoin.get("usd"), "unit": "USD"},
+            "price_change_24h_pct": {"value": round(bitcoin.get("usd_24h_change"), 2), "unit": "%"},
+            "volume_24h_usd": {"value": round(bitcoin.get("usd_24h_vol")), "unit": "USD"},
+            "market_cap_usd": {"value": round(bitcoin.get("usd_market_cap")), "unit": "USD"},
             "last_updated_at": datetime.fromtimestamp(bitcoin.get("last_updated_at"), tz = timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
             "source": "CoinGecko",
     }
