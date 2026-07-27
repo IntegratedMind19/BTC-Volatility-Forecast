@@ -9,8 +9,8 @@ def fetch_fed_data(series_id: str):
   params = {
     "api_key": api_key,
     "file_type": "json",
-    "series_id" = series_id,
-    "sort_order" = "desc",
+    "series_id": series_id,
+    "sort_order": "desc",
     "limit": 10
   }
   try:
