@@ -18,7 +18,7 @@ def retrieve_bitcoin_market_data():
   try:
     response = requests.get(base_url, params = params, headers = headers, timeout = 10)
     response.raise_for_status()
-    bitcoin = response.json().["bitcoin"]
+    bitcoin = response.json()["bitcoin"]
     return {
             "status": "available",
             "price_usd": bitcoin.get("usd"),
