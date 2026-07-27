@@ -1,7 +1,7 @@
 import os
 import requests
 
-def fetch_fed_data(series_id: str):
+def fetch_fed_data(series_id: str, unit: str):
   api_key = os.getenv("FRED_API_KEY")
   if not api_key:
     raise RuntimeError("FRED API key not found")
@@ -24,7 +24,7 @@ def fetch_fed_data(series_id: str):
       "status": "available",
       "series_id": series_id,
       "source": "FRED",
-      "data": {"value": float(latest["value"]), "units": "%"},
+      "data": {"value": float(latest["value"]), "unit": unit},
       "observation_date": latest["date"]
     }
   except (requests.RequestException, TypeError, ValueError) as error:
@@ -37,8 +37,8 @@ def fetch_fed_data(series_id: str):
 
 def retrieve_macro_data():
   FRED_SERIES = {
-    "effective_federal_funds_rate": "DFF",
-    "ten_year_treasury_yield": "DGS10",
-    "market_volatility_index": "VIXCLS",
+    "effective_federal_funds_rate": ["DFF", "%"],
+    "ten_year_treasury_yield": ["DGS10", "%"],
+    "market_volatility_index": ["VIXCLS", "points"],
   }
-  return {name: fetch_fed_data(series_id) for name, series_id in FRED_SERIES.items()}
+  return {name: fetch_fed_data(series[0], series[1]) for name, series in FRED_SERIES.items()}
