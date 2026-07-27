@@ -24,7 +24,7 @@ def fetch_fed_data(series_id: str):
       "status": "available",
       "series_id": series_id,
       "source": "FRED",
-      "value": float(latest["value"]),
+      "data": {"value": float(latest["value"]), "units": "%"},
       "observation_date": latest["date"]
     }
   except (requests.RequestException, TypeError, ValueError) as error:
