@@ -13,6 +13,6 @@ def market_context_builder():
   market_context_dict["coverage"]["crypto_market"] = market_context_dict["market_data"]["status"]
   market_context_dict["coverage"]["macroeconomics"] = ("available" if any(item.get("status") == "available" for item in market_context_dict["macro_data"].values())
                                                       else "unavailable")
-  market_context_dict["coverage"]["news"] = ("available" if news)
+  market_context_dict["coverage"]["news"] = ("available" if news else "unavailable")
   
   return market_context_dict
