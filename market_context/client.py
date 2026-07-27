@@ -1,4 +1,4 @@
-from market_context.build_market_context import market_context_builder
+import market_context
 from dotenv import load_dotenv
 
 load_dotenv()
