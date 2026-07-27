@@ -1,4 +1,3 @@
-pip install arch #Since arch module is not inherently installed, we must install it manually.
 from arch import arch_model
 import yfinance as yf
 import numpy as np
