@@ -26,11 +26,9 @@ def retrieve_bitcoin_news(limit = 10):
                     "published_at": item.get("time_published"),
                     "source_name": item.get("source"),
                     "source_url": item.get("url"),
-                    "overall_sentiment_label": item.get(
-                        "overall_sentiment_label"
-                    ),
+                    "overall_sentiment_label": item.get("overall_sentiment_label"),
                     "relevance_score": extract_btc_relevance(item)
-                }
+      }
     )
   return articles
 
