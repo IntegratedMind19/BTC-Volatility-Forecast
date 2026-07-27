@@ -63,13 +63,16 @@ Persistence: analysis_output ['historical_analysis'] ['persistence'] (state that
 (Ensure the explanations adhere to ./interpretations.md)
 
 Bitcoin market activity:
-One or two sentences based on CoinGecko.
+One or two sentences based on CoinGecko. (Last updated: YYYY-MM-DD HH:MM:SS)
 
 Macroeconomic environment:
-One or two sentences based on FRED.
+One or two sentences based on FRED. (Observation date: YYYY-MM-DD)
 
 Recent developments:
-Up to three relevant news items.
+State maximum three relevant news items. No need to state that they does not directly affect the model in each news.
+
+Disclaimer:
+Do not change the wording from the market context json data.
 
 ## Confidence
 
