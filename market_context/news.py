@@ -1,9 +1,7 @@
 import os
-from dotenv import load_dotenv
 import requests
 
 def retrieve_bitcoin_news(limit = 10):
-  load_dotenv()
   api_key = os.getenv("ALPHA_VANTAGE_KEY")
   if not api_key:
     raise RuntimeError("Alpha Vantage API key not found")
