@@ -17,7 +17,7 @@ def fetch_fed_data(series_id: str):
     response = requests.get(base_url, params = params, timeout = 10)
     response.raise_for_status()
     observations = response.json().get("observations")
-    latest = next(observation for observation in observations if observation.get("value") not in {None, "."}, None)
+    latest = next((observation for observation in observations if observation.get("value") not in {None, "."}), None)
     if latest is None:
       raise RuntimeError("Observation data not found")
     return {
