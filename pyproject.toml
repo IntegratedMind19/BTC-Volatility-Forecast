@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "analysis_module"
+version = "0.1.0"
+authors = [
+  { name="Nathan Chrisopherson Kwok", email="nathankwok.chrisopherson@gmail.com" },
+]
+description = "Building an analysis_module package"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [] # Add external pip packages here if needed
