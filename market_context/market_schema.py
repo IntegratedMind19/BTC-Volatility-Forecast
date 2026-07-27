@@ -9,5 +9,6 @@ def empty_market_context():
             "macroeconomics": "unavailable",
             "news": "unavailable",
         },
-        "disclaimer": "External market context was not used as an input to the volatility forecasting model."
+        "disclaimer": "External market context was not used as an input to the volatility forecasting model.",
+        "model_version": "1.0"
     }
