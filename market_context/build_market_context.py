@@ -1,4 +1,6 @@
-import market_context
+from coingecko import retrieve_bitcoin_market_data
+from fred import retrieve_macro_data
+from news import retrieve_bitcoin_news
 from datetime import datetime
 
 def market_context_builder():
