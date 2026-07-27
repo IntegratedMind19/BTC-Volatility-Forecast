@@ -1,5 +1,6 @@
 import os
 import requests
+from datetime import datetime, timezone
 
 def retrieve_bitcoin_market_data():
   api_key = os.getenv("CG_API_KEY")
@@ -25,7 +26,7 @@ def retrieve_bitcoin_market_data():
             "price_change_24h_pct": str(round(bitcoin.get("usd_24h_change"), 2)) + " %",
             "volume_24h_usd": str(round(bitcoin.get("usd_24h_vol"))) + " USD",
             "market_cap_usd": str(round(bitcoin.get("usd_market_cap"))) + " USD",
-            "last_updated_at": bitcoin.get("last_updated_at").strftime("%Y-%m-%d %H:%M:%S"),
+            "last_updated_at": datetime.fromtimestamp(bitcoin.get("last_updated_at"), tz = timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
             "source": "CoinGecko",
     }
   except (requests.RequestException, KeyError, TypeError, ValueError) as error:
