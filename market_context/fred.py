@@ -19,7 +19,12 @@ def fetch_fed_data(series_id: str, unit: str):
     observations = response.json().get("observations")
     latest = next((observation for observation in observations if observation.get("value") not in {None, "."}), None)
     if latest is None:
-      raise RuntimeError("Observation data not found")
+      return {
+            "status": "unavailable",
+            "series_id": series_id,
+            "source": "FRED",
+            "error": str(error),
+      }
     return {
       "status": "available",
       "series_id": series_id,
