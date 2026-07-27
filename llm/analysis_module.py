@@ -215,12 +215,12 @@ class Confidence:
 
     return {'confidence_level': self.confidence_level, 'confidence_index': self.confidence_index}
 
+forecast_input = ForecastInputs()
+pred = Prediction()
+hist_analysis = HistAnalysis()
+confidence = Confidence()
+
 def get_analysis_data():
-    forecast_input = ForecastInputs()
-    pred = Prediction()
-    hist_analysis = HistAnalysis()
-    confidence = Confidence()
-    
     analysis_output = {"prediction": {"predicted_volatility": pred.predict(),
                                       "forecast_relativity": pred.direction,
                                       "risk_level": pred.risk_level_judgement(),
@@ -243,3 +243,4 @@ def get_analysis_data():
                        "metadata": {"timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                                     "model_version": "1.0"}
                        }
+    return analysis_output
