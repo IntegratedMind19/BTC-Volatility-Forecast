@@ -11,7 +11,7 @@ from datetime import datetime
 class ForecastInputs:
     def __init__(self):
         self.btc = yf.download("BTC-USD", start = "2018-01-01")
-        if not self.btc:
+        if self.btc.empty:
             raise Exception("Failed to retrieve Bitcoin historical price data.")
         self.btc = self.btc[["Close"]].dropna()
         log_diff = np.log(self.btc["Close"]).diff().dropna()
