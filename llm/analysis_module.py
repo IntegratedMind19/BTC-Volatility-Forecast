@@ -11,9 +11,13 @@ from datetime import datetime
 class ForecastInputs:
     def __init__(self):
         self.btc = yf.download("BTC-USD", start="2018-01-01")
+        if not btc:
+            raise Exception("Failed to retrieve Bitcoin historical price data.")
         self.btc = self.btc[["Close"]].dropna()
         log_diff = np.log(self.btc["Close"]).diff().dropna()
         res = arch_model(log_diff * 10, vol="GARCH", mean="ARX", lags=1, p=1, q=1, dist="t").fit(disp="off")
+        if not res:
+            raise Exception("Failed to construct prediction model")
 
         self.btc = self.btc.iloc[1:].copy()
         self.btc["log_return"] = log_diff.values
