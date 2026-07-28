@@ -10,7 +10,8 @@ from datetime import datetime
 
 class ForecastInputs:
     def __init__(self):
-        if not btc:
+        self.btc = None
+        if not self.btc:
             raise Exception("Failed to retrieve Bitcoin historical price data.")
         self.btc = self.btc[["Close"]].dropna()
         log_diff = np.log(self.btc["Close"]).diff().dropna()
