@@ -108,7 +108,7 @@ Explain that recent volatility has changed more frequently and future movements 
 3. Do not claim that external events caused the model forecast.
 4. State clearly that external context was not used by the Random Forest model.
 5. Mention only materially relevant information.
-6. Only provide news when there are news relevant to the data obtained in analysis_output. State connections between analysis_output to the selected news. (e.g., increasing oil prices due to Iranian war leads to higher Bitcoin volatility.)
+6. Only provide news when there are news relevant to the data obtained in analysis_output. State how the analysis_output and the selected news are connected and relevant to each other.
 7. Do not use opinion or editorial articles.
 8. Preserve the distinction between publication date and observation date.
 9. If market context is unavailable, state this directly.
