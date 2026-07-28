@@ -7,10 +7,10 @@ from datetime import datetime, timezone
 def market_context_builder():
   market_context_dict = empty_market_context()
   market_context_dict["retrieved_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S") + " (UTC)"
-  market_context_dict["market_data"] = dict() # retrieve_bitcoin_market_data()
-  market_context_dict["macro_data"] = dict() # retrieve_macro_data()
+  market_context_dict["market_data"] = retrieve_bitcoin_market_data()
+  market_context_dict["macro_data"] = retrieve_macro_data()
   
-  articles = dict() # retrieve_bitcoin_news(20)
+  articles = retrieve_bitcoin_news(20)
   market_context_dict["news"] = [article for article in articles if (article["summary"] and article["relevance_score"] > 0.2)][:10]
   
   market_context_dict["coverage"]["crypto_market"] = market_context_dict["market_data"]["status"]
