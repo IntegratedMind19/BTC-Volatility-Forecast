@@ -1,5 +1,6 @@
 import json
 from analysis_module import get_analysis_data
+from market_context.build_market_context import market_context_builder
 
 def build_llm_inputs(prompt_template: str, knowledge_base: str, analysis_output: dict, market_context: dict):
   analysis_output = get_analysis_data()
