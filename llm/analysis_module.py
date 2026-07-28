@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestRegressor
 import pandas as pd
 from scipy import stats
-from datetime import datetime
+from datetime import datetime, timezone
 
 class ForecastInputs:
     def __init__(self):
@@ -244,7 +244,7 @@ def get_analysis_data():
                                       "volatility_regime_percentile": float(pred.vol_regime_percentile),
                                       "persistence_percentile": confidence.persistence,
                                       "ensemble_uncertainty_percentile": float(confidence.tree_disagreements_percentile)},
-                       "metadata": {"timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                       "metadata": {"timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
                                     "model_version": "1.0"}
                        }
     return analysis_output
