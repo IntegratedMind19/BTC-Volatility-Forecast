@@ -73,6 +73,7 @@ class ForecastInputs:
 
 class Prediction:
     def __init__(self):
+        self.forecast_input = forecast_input
         self.X = forecast_input.btc[forecast_input.features]
         self.y = forecast_input.btc["target_volatility"]
         self.monthly_avg = (
@@ -103,10 +104,10 @@ class Prediction:
     def predict(self):
         if self.model is None or self.pipeline is None:
             self.train()
-        last_scaled = self.pipeline.transform(forecast_input.last_feature_data)
+        last_scaled = self.pipeline.transform(self.forecast_input.last_feature_data)
         self.prediction = dict()
         self.prediction = float(self.model.predict(last_scaled)[0])
-        if self.prediction >= float(forecast_input.all_time_volatility.iloc[-1]):
+        if self.prediction >= float(self.forecast_input.all_time_volatility.iloc[-1]):
             self.direction = "higher"
         else:
             self.direction = "lower"
@@ -120,7 +121,7 @@ class Prediction:
         if self.prediction is None:
             self.predict()
         if self.daily_threshold is None:
-            self.daily_threshold = self.calculate_thresholds(forecast_input.all_time_volatility)
+            self.daily_threshold = self.calculate_thresholds(self.forecast_input.all_time_volatility)
         if self.prediction > self.daily_threshold[1]:
             self.risk_level = "high"
         elif self.prediction < self.daily_threshold[0]:
@@ -133,7 +134,7 @@ class Prediction:
         if self.prediction is None:
             self.predict()
         if self.monthly_threshold is None:
-            self.monthly_threshold = self.calculate_thresholds(forecast_input.all_time_volatility.rolling(30).mean().dropna())
+            self.monthly_threshold = self.calculate_thresholds(self.forecast_input.all_time_volatility.rolling(30).mean().dropna())
         if self.monthly_avg < self.monthly_threshold[0]:
             self.vol_regime_level = "low"
         elif self.monthly_avg > self.monthly_threshold[1]:
@@ -141,11 +142,12 @@ class Prediction:
         else:
             self.vol_regime_level = "medium"
 
-        self.vol_regime_percentile = stats.percentileofscore(forecast_input.all_time_volatility.rolling(30).mean().dropna(), self.monthly_avg)
+        self.vol_regime_percentile = stats.percentileofscore(self.forecast_input.all_time_volatility.rolling(30).mean().dropna(), self.monthly_avg)
         return {'vol_regime_level': self.vol_regime_level, 'vol_regime_percentile': float(self.vol_regime_percentile)}
 
 class HistAnalysis:
-  def __init__(self):
+  def __init__(self, forecast_input):
+    self.forecast_input = forecast_input
     self.monthly_volatility = forecast_input.all_time_volatility.iloc[-30:]
     self.monthly_avg = self.monthly_volatility.mean()
     self.monthly_max = max(self.monthly_volatility)
@@ -155,8 +157,8 @@ class HistAnalysis:
     days = np.array([i for i in range(len(self.monthly_volatility))])
     i = 0
     self.slopes = list()
-    while i + 29 < len(forecast_input.all_time_volatility):
-      self.slopes.append(abs(np.polyfit(days, np.array(forecast_input.all_time_volatility.iloc[i:i+30]), deg = 1)[0]))
+    while i + 29 < len(self.forecast_input.all_time_volatility):
+      self.slopes.append(abs(np.polyfit(days, np.array(self.forecast_input.all_time_volatility.iloc[i:i+30]), deg = 1)[0]))
       i += 1
     self.trend = dict()
     self.slope = np.polyfit(days, np.array(self.monthly_volatility), deg = 1)[0]
@@ -190,6 +192,7 @@ class HistAnalysis:
 
 class Confidence:
   def __init__(self):
+    self.forecast_input = forecast_input
     self.confidence_index = None
     self.confidence_level = None
 
@@ -200,8 +203,8 @@ class Confidence:
     self.persistence = hist_analysis.persistence_analysis()['persistence_index'] * 100
 
     self.tree_disagreements = list()
-    for i in range(len(forecast_input.all_time_features_data)):
-      sample = forecast_input.all_time_features_data.iloc[i:i+1]
+    for i in range(len(self.forecast_input.all_time_features_data)):
+      sample = self.forecast_input.all_time_features_data.iloc[i:i+1]
       sample = pred.pipeline.transform(sample)
       self.prediction = float(pred.model.predict(sample)[0])
       self.individual_preds = np.array([float(tree.predict(sample)[0]) for tree in pred.model.estimators_])
@@ -219,12 +222,11 @@ class Confidence:
 
     return {'confidence_level': self.confidence_level, 'confidence_index': self.confidence_index}
 
-forecast_input = ForecastInputs()
-pred = Prediction()
-hist_analysis = HistAnalysis()
-confidence = Confidence()
-
 def get_analysis_data():
+    forecast_input = ForecastInputs()
+    pred = Prediction(forecast_input)
+    hist_analysis = HistAnalysis(forecast_input)
+    confidence = Confidence(forecast_input)
     analysis_output = {"prediction": {"predicted_volatility": pred.predict(),
                                       "forecast_relativity": pred.direction,
                                       "risk_level": pred.risk_level_judgement(),
