@@ -260,6 +260,3 @@ def get_analysis_data():
                                     "model_version": "1.0"}
                        }
     return analysis_output
-
-analysis_output = get_analysis_data()
-print(analysis_output)
