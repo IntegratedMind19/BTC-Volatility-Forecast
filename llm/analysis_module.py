@@ -198,7 +198,7 @@ class Confidence:
     self.confidence_level = None
 
   def confidence_analysis(self):
-    if pred.prediction is None:
+    if self.pred.prediction is None:
       self.pred.predict()
 
     self.persistence = hist_analysis.persistence_analysis()['persistence_index'] * 100
@@ -251,3 +251,6 @@ def get_analysis_data():
                                     "model_version": "1.0"}
                        }
     return analysis_output
+
+analysis_output = get_analysis_data()
+print(analysis_output)
