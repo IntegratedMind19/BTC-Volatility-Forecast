@@ -254,7 +254,7 @@ def get_analysis_data():
                        "confidence": {"confidence_level": confidence.confidence_analysis()['confidence_level'],
                                       "confidence_index": float(confidence.confidence_index),
                                       "volatility_regime_percentile": float(pred.vol_regime_percentile),
-                                      "persistence_percentile": confidence.persistence,
+                                      "persistence_index": confidence.persistence,
                                       "ensemble_uncertainty_percentile": float(confidence.tree_disagreements_percentile)},
                        "metadata": {"timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
                                     "model_version": "1.0"}
