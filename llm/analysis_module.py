@@ -141,7 +141,7 @@ class Prediction:
         if self.prediction is None:
             self.predict()
         self.feature_importance = dict()
-        for i, feature in enumerate(self.features):
+        for i, feature in enumerate(self.forecast_input.features):
             self.feature_importance[feature] = float(self.model.feature_importances_[i]) * 100
         return self.feature_importance
 
