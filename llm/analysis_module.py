@@ -191,23 +191,24 @@ class HistAnalysis:
     return self.persistence
 
 class Confidence:
-  def __init__(self, forecast_input):
+  def __init__(self, forecast_input, pred):
     self.forecast_input = forecast_input
+    self.pred = pred
     self.confidence_index = None
     self.confidence_level = None
 
   def confidence_analysis(self):
     if pred.prediction is None:
-      pred.predict()
+      self.pred.predict()
 
     self.persistence = hist_analysis.persistence_analysis()['persistence_index'] * 100
 
     self.tree_disagreements = list()
     for i in range(len(self.forecast_input.all_time_features_data)):
       sample = self.forecast_input.all_time_features_data.iloc[i:i+1]
-      sample = pred.pipeline.transform(sample)
-      self.prediction = float(pred.model.predict(sample)[0])
-      self.individual_preds = np.array([float(tree.predict(sample)[0]) for tree in pred.model.estimators_])
+      sample = self.pred.pipeline.transform(sample)
+      self.prediction = float(self.pred.model.predict(sample)[0])
+      self.individual_preds = np.array([float(tree.predict(sample)[0]) for tree in self.pred.model.estimators_])
       self.tree_disagreements.append(np.std(self.individual_preds) / abs(self.prediction))
     self.tree_disagreements_percentile = stats.percentileofscore(self.tree_disagreements[:-1], self.tree_disagreements[-1])
 
@@ -226,7 +227,7 @@ def get_analysis_data():
     forecast_input = ForecastInputs()
     pred = Prediction(forecast_input)
     hist_analysis = HistAnalysis(forecast_input)
-    confidence = Confidence(forecast_input)
+    confidence = Confidence(forecast_input, pred)
     analysis_output = {"prediction": {"predicted_volatility": pred.predict(),
                                       "forecast_relativity": pred.direction,
                                       "risk_level": pred.risk_level_judgement(),
