@@ -60,17 +60,6 @@ class ForecastInputs:
             self.feature_values[feature] = float(self.last_feature_data[feature].values[0])
         return self.feature_values
 
-    def retrieve_feature_importance(self):
-        if pred.model is None:
-            pred.train()
-        if pred.prediction is None:
-            pred.predict()
-        self.model = pred.model
-        self.feature_importance = dict()
-        for i, feature in enumerate(self.features):
-            self.feature_importance[feature] = float(self.model.feature_importances_[i]) * 100
-        return self.feature_importance
-
 class Prediction:
     def __init__(self, forecast_input):
         self.forecast_input = forecast_input
@@ -86,6 +75,7 @@ class Prediction:
         self.prediction = None
         self.daily_threshold = None
         self.monthly_threshold = None
+        self.feature_importance = None
 
     def train(self):
         self.model = RandomForestRegressor(
@@ -144,6 +134,16 @@ class Prediction:
 
         self.vol_regime_percentile = stats.percentileofscore(self.forecast_input.all_time_volatility.rolling(30).mean().dropna(), self.monthly_avg)
         return {'vol_regime_level': self.vol_regime_level, 'vol_regime_percentile': float(self.vol_regime_percentile)}
+        
+    def retrieve_feature_importance(self):
+        if self.model is None:
+            self.train()
+        if self.prediction is None:
+            self.predict()
+        self.feature_importance = dict()
+        for i, feature in enumerate(self.features):
+            self.feature_importance[feature] = float(self.model.feature_importances_[i]) * 100
+        return self.feature_importance
 
 class HistAnalysis:
   def __init__(self, forecast_input):
@@ -235,7 +235,7 @@ def get_analysis_data():
                                            "rolling_volatility": float(forecast_input.all_time_features_data['rolling_std_14'].iloc[-1]),
                                            "yesterday_volatility": float(forecast_input.all_time_volatility.iloc[-2]),
                                            "feature_values": forecast_input.retrieve_features(),
-                                           "feature_importance": forecast_input.retrieve_feature_importance()},
+                                           "feature_importance": pred.retrieve_feature_importance()},
                        "historical_analysis": {"monthly_average": float(hist_analysis.monthly_avg),
                                                "monthly_max": hist_analysis.monthly_max,
                                                "monthly_min:": hist_analysis.monthly_min,
