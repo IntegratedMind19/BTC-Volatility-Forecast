@@ -72,7 +72,7 @@ class ForecastInputs:
         return self.feature_importance
 
 class Prediction:
-    def __init__(self):
+    def __init__(self, forecast_input):
         self.forecast_input = forecast_input
         self.X = forecast_input.btc[forecast_input.features]
         self.y = forecast_input.btc["target_volatility"]
@@ -191,7 +191,7 @@ class HistAnalysis:
     return self.persistence
 
 class Confidence:
-  def __init__(self):
+  def __init__(self, forecast_input):
     self.forecast_input = forecast_input
     self.confidence_index = None
     self.confidence_level = None
