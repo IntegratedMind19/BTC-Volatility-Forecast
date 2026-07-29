@@ -15,10 +15,18 @@ class ForecastInputs:
             raise Exception("Failed to retrieve Bitcoin historical price data.")
         self.btc = self.btc[["Close"]].dropna()
         log_diff = np.log(self.btc["Close"]).diff().dropna()
-        res = arch_model(log_diff * 10, vol="GARCH", mean="ARX", lags=1, p=1, q=1, dist="t").fit(disp="off")
-        if not res:
-            raise Exception("Failed to construct prediction model")
+        
+        try:
+            res = arch_model(log_diff * 10, vol="GARCH", mean="ARX", lags=1, p=1, q=1, dist="t").fit(disp="off")
+        except Exception as exc:
+            raise RuntimeError("Fail to fit the GARCH model") from exc
+            
+        if isinstance(self.btc.columns, pd.MultiIndex):
+            self.btc.columns = self.btc.columns.get_level_values(0)
 
+        if "Close" not in self.btc.columns:
+            raise ValueError("Bitcoin data does not contain a Close column.")
+            
         self.btc = self.btc.iloc[1:].copy()
         self.btc["log_return"] = log_diff.values
         self.btc["garch_volatility"] = res.conditional_volatility / 10
