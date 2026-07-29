@@ -191,9 +191,10 @@ class HistAnalysis:
     return self.persistence
 
 class Confidence:
-  def __init__(self, forecast_input, pred):
+  def __init__(self, forecast_input, pred, hist_analysis):
     self.forecast_input = forecast_input
     self.pred = pred
+    self.hist_analysis = hist_analysis
     self.confidence_index = None
     self.confidence_level = None
 
@@ -201,7 +202,7 @@ class Confidence:
     if self.pred.prediction is None:
       self.pred.predict()
 
-    self.persistence = hist_analysis.persistence_analysis()['persistence_index'] * 100
+    self.persistence = self.hist_analysis.persistence_analysis()['persistence_index'] * 100
 
     self.tree_disagreements = list()
     for i in range(len(self.forecast_input.all_time_features_data)):
@@ -227,7 +228,7 @@ def get_analysis_data():
     forecast_input = ForecastInputs()
     pred = Prediction(forecast_input)
     hist_analysis = HistAnalysis(forecast_input)
-    confidence = Confidence(forecast_input, pred)
+    confidence = Confidence(forecast_input, pred, hist_analysis)
     analysis_output = {"prediction": {"predicted_volatility": pred.predict(),
                                       "forecast_relativity": pred.direction,
                                       "risk_level": pred.risk_level_judgement(),
