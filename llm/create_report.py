@@ -13,5 +13,8 @@ def create_report(
   prompt_template = pt.load_prompt_template(prompt_template_dir)
   llm_input = llm_inputs.build_llm_inputs(prompt_template, knowledge_base, analysis_output, market_context)
   response = ge.generate_explanation(client, llm_input, model)
-  return response
-                    
+  return {
+    "analysis": analysis_output,
+    "market_context": market_context,
+    "report": response
+  }     
