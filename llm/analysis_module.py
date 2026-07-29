@@ -218,7 +218,7 @@ class Confidence:
       sample = self.pred.pipeline.transform(sample)
       self.prediction = float(self.pred.model.predict(sample)[0])
       self.individual_preds = np.array([float(tree.predict(sample)[0]) for tree in self.pred.model.estimators_])
-      self.tree_disagreements.append(np.std(self.individual_preds) / abs(self.prediction))
+      self.tree_disagreements.append(np.std(self.individual_preds) / max(abs(self.prediction), 1e-8))
     self.tree_disagreements_percentile = stats.percentileofscore(self.tree_disagreements[:-1], self.tree_disagreements[-1])
 
     self.confidence_index = 0.7 * (100 - self.tree_disagreements_percentile) + 0.3 * self.persistence
@@ -248,7 +248,7 @@ def get_analysis_data():
                                            "feature_importance": pred.retrieve_feature_importance()},
                        "historical_analysis": {"monthly_average": float(hist_analysis.monthly_avg),
                                                "monthly_max": hist_analysis.monthly_max,
-                                               "monthly_min:": hist_analysis.monthly_min,
+                                               "monthly_min": hist_analysis.monthly_min,
                                                "trend": hist_analysis.trend_analysis(),
                                                "persistence": hist_analysis.persistence_analysis()},
                        "confidence": {"confidence_level": confidence.confidence_analysis()['confidence_level'],
