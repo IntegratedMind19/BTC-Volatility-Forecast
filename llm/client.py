@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 from pathlib import Path
-import create_report
+from create_report import create_report
 from analysis_module import get_analysis_data
 from market_context.build_market_context import market_context_builder
 
