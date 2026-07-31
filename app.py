@@ -1,11 +1,11 @@
 from flask import Flask, jsonify, render_template
 from llm.client import generate_report
 
-app = Flask(__name__, template_folder = "templates")
+app = Flask(__name__, template_folder = "template")
 
 @app.route("/")
 def index():
-  return render_template("/template/index.html")
+  return render_template("index.html")
 
 @app.route("/api/forecast", methods = ["GET"])
 def forecast():
