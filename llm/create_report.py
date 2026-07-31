@@ -1,9 +1,9 @@
 from pathlib import Path
 from openai import OpenAI
-import load_explanation_engine as kb
-import load_prompt_template as pt
-import llm_inputs
-import generate_explanation as ge
+import llm.load_explanation_engine as kb
+import llm.load_prompt_template as pt
+import llm.llm_inputs
+import llm.generate_explanation as ge
 
 def create_report(
   knowledge_base_dir: str | Path, prompt_template_dir: str | Path, analysis_output: dict, market_context: dict, 
