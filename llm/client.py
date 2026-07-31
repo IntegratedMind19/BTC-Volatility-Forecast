@@ -15,8 +15,8 @@ def generate_report():
   
   client = OpenAI(api_key = api_key)
   
-  knowledge_base_dir = "../knowledge_base"
-  prompt_template_dir = "../prompt"
+  knowledge_base_dir = "BTC-Volatility-Forecast/knowledge_base"
+  prompt_template_dir = "BTC-Volatility-Forecast/prompt"
   
   analysis_output = get_analysis_data()
   market_context = market_context_builder()
