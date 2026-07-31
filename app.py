@@ -14,5 +14,13 @@ def forecast():
     return jsonify(result), 500
   return jsonify(result), 200
 
+@app.route("/forecast_explanation")
+def forecast_explanation():
+  render_template("forecast.html")
+
+@app.route("/about")
+def about():
+  render_template("about.html")
+
 if __name__ == "__main__":
   app.run(debug = True)
