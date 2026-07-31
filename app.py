@@ -16,7 +16,7 @@ def forecast():
     return jsonify(result), 500
   return jsonify(result), 200
 
-@app.get("/api/chart_data")
+@app.get("/api/chart-data")
 def get_chart_data():
   chart_data = get_latest_vol_and_price()
   chart_data["dates"] = [date.today() - date.timedelta(days = t) for t in range(29,-1,-1)]
