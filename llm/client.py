@@ -21,7 +21,7 @@ def generate_report():
   analysis_output = get_analysis_data()
   market_context = market_context_builder()
   
-  response = create_report.create_report(knowledge_base_dir, prompt_template_dir, analysis_output, market_context, client, "gpt-5.5")
+  response = create_report(knowledge_base_dir, prompt_template_dir, analysis_output, market_context, client, "gpt-5.5")
   
   return response
 
