@@ -2,7 +2,7 @@ from llm.market_context.coingecko import retrieve_bitcoin_market_data
 from llm.market_context.fred import retrieve_macro_data
 from llm.market_context.news import retrieve_bitcoin_news
 from llm.market_context.market_schema import empty_market_context
-from llm.datetime import datetime, timezone
+from datetime import datetime, timezone
 
 def market_context_builder():
   market_context_dict = empty_market_context()
