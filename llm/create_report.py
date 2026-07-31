@@ -22,6 +22,7 @@ def create_report(
     }
   except Exception as exc:
     return {
+      "error": exc,
       "status": "failed",
       "analysis": None,
       "market_context": None,
