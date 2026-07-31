@@ -14,9 +14,11 @@ def generate_report():
     raise RuntimeError("api_key is not defined correctly")
   
   client = OpenAI(api_key = api_key)
+
+  root_dir = Path(__file__).resolve().parent.parent
   
-  knowledge_base_dir = "/knowledge_base"
-  prompt_template_dir = "/prompt"
+  knowledge_base_dir = f"{root_dir}/knowledge_base"
+  prompt_template_dir = f"{root_dir}/prompt"
   
   analysis_output = get_analysis_data()
   market_context = market_context_builder()
