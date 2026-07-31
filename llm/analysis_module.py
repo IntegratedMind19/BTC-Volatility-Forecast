@@ -263,3 +263,10 @@ def get_analysis_data():
         return analysis_output
     except Exception as exc:
         return None
+
+def get_latest_vol_and_price():
+    forecast_input = ForecastInputs()
+    return {
+            'vol': forecast_input.all_time_volatility.iloc[-30:].tolist(), 
+            'price': forecast_input.btc.iloc[-30:].tolist()
+           }
