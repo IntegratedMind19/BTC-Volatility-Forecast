@@ -2,7 +2,7 @@ from pathlib import Path
 from openai import OpenAI
 import llm.load_explanation_engine as kb
 import llm.load_prompt_template as pt
-import llm.llm_inputs
+import llm.llm_inputs as li
 import llm.generate_explanation as ge
 
 def create_report(
@@ -12,7 +12,7 @@ def create_report(
   try:
     knowledge_base = kb.load_knowledge_base(knowledge_base_dir)
     prompt_template = pt.load_prompt_template(prompt_template_dir)
-    llm_input = llm_inputs.build_llm_inputs(prompt_template, knowledge_base, analysis_output, market_context)
+    llm_input = li.build_llm_inputs(prompt_template, knowledge_base, analysis_output, market_context)
     response = ge.generate_explanation(client, llm_input, model)
     return {
       "status": "success",
