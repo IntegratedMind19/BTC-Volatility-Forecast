@@ -8,3 +8,23 @@ async function loadChartData(){
     console.error(error)
   }
 }
+
+function drawVolatilityChart(data) {
+    const trace = {
+        x: data.dates,
+        y: data.volatility,
+        type: "scatter",
+        mode: "lines",
+        name: "Volatility"
+    };
+
+    Plotly.newPlot(
+        "chart",
+        [trace],
+        {
+            title: "Bitcoin Volatility"
+        }
+    );
+}
+
+loadChartData()
