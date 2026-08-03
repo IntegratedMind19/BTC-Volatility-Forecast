@@ -12,6 +12,7 @@ async function loadChartData(){
 async function loadAnalysisOutput(){
     const response = await fetch("/api/forecast");
     if (!response.ok){
+        console.log("AAAAAA");
       throw new Error(`Failed to load forecast data, ${response.status}`);
     }
     analysis = await response.json();
@@ -19,11 +20,10 @@ async function loadAnalysisOutput(){
 
 function drawVolatilityChart() {
     console.log("Volatility button clicked");
-    /*
+    
     if (!data || !analysis){
       throw new Error("Chart or analysis is unavailable.");
     }
-    */
   
     const trace = {
         x: data.dates,
@@ -32,7 +32,7 @@ function drawVolatilityChart() {
         mode: "lines",
         name: "Volatility"
     };
-/*
+
     const prediction = {
         x: ["Tomorrow"],
         y: [analysis.prediction.predicted_volatility],
@@ -40,7 +40,6 @@ function drawVolatilityChart() {
         mode: "lines",
         name: "prediction"
     };
- */
 
     Plotly.react(
         "chart",
