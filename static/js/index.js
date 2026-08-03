@@ -7,7 +7,6 @@ async function loadChartData(){
       throw new Error(`Failed to load chart data, ${response.status}`);
     }
     data = await response.json();
-    drawVolatilityChart(data);
 }
 
 async function loadAnalysisOutput(){
@@ -18,10 +17,10 @@ async function loadAnalysisOutput(){
     analysis = await response.json();
 }
 
-function drawVolatilityChart(data) {
+function drawVolatilityChart() {
     console.log("Volatility button clicked");
     if (!data || !analysis){
-      console.error("Chart or analysis is unavailable.");
+      throw new Error("Chart or analysis is unavailable.");
     }
   
     const trace = {
@@ -49,10 +48,10 @@ function drawVolatilityChart(data) {
     );
 }
 
-function drawPriceData(data){
+function drawPriceData(){
     console.log("Price button clicked");
     if (!data){
-      console.error("Chart data is not available");
+      throw new Error("Chart data is not available");
     }
     const trace = {
         x: data.dates,
@@ -81,7 +80,7 @@ async function initialize(){
   }
 }
 
-document.getElementById("price-btn").addEventListener("click", () => drawPriceData(data));
-document.getElementById("vol-btn").addEventListener("click", () => drawVolatilityChart(data));
+document.getElementById("price-btn").addEventListener("click", drawPriceData);
+document.getElementById("vol-btn").addEventListener("click", drawVolatilityChart);
 console.log("JavaScript file loaded successfully");
 initialize();
