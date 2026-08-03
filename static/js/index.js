@@ -19,9 +19,11 @@ async function loadAnalysisOutput(){
 
 function drawVolatilityChart() {
     console.log("Volatility button clicked");
+    /*
     if (!data || !analysis){
       throw new Error("Chart or analysis is unavailable.");
     }
+    */
   
     const trace = {
         x: data.dates,
