@@ -4,25 +4,29 @@ let analysis;
 async function loadChartData(){
   try {
     const response = await fetch("/api/chart-data");
-    const data = await response.json();
-    drawVolChart(data);
-  }
-  catch(error) {
-    console.error(error);
+    if (!response.ok){
+      throw new Error(`Failed to load chart data, ${response.status}`);
+    }
+    data = await response.json();
+    drawVolatilityChart(data);
   }
 }
 
 async function loadAnalysisOutput(){
   try {
     const response = await fetch("/api/forecast");
-    const analysis = await response.json();
-  }
-  catch(error){
-    console.error(error);
+    if (!response.ok){
+      throw new Error(`Failed to load forecast data, ${response.status}`);
+    }
+    analysis = await response.json();
   }
 }
 
 function drawVolatilityChart(data) {
+    if (!data || !analysis){
+      console.error("Chart or analysis is unavailable.");
+    }
+  
     const trace = {
         x: data.dates,
         y: data.volatility,
@@ -49,6 +53,9 @@ function drawVolatilityChart(data) {
 }
 
 function drawPriceData(data){
+    if (!data){
+      console.error("Chart data is not available");
+    }
     const trace = {
         x: data.dates,
         y: data.price,
@@ -66,8 +73,16 @@ function drawPriceData(data){
     );
 }
 
-loadChartData();
-loadAnalysisOutput();
+async function initialize(){
+  try {
+    await Promise.all([loadChartData(), loadAnalysisOutput()]);
+    drawVolatilityChart(data);
+  }
+  catch(error){
+    console.error(error);
+  }
+}
 
 document.getElementById("price-btn").addEventListener("click", () => drawPriceData(data));
 document.getElementById("vol-btn").addEventListener("click", () => drawVolatilityChart(data));
+initialize();
