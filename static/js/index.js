@@ -22,8 +22,26 @@ function drawVolatilityChart(data) {
         "chart",
         [trace],
         {
-            title: "Bitcoin Volatility"
+            title: "Bitcoin Volatility (1 M)"
         }
+    );
+}
+
+function drawPriceData(data){
+    const trace = {
+        x: data.dates,
+        y: data.price,
+        type: "scatter",
+        mode: "lines",
+        name: "Price"
+    };
+
+    Plotly.newPlot(
+      "chart",
+      [trace],
+      {
+        title: "Bitcoin Price (1 M)"
+      }
     );
 }
 
