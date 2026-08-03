@@ -2,24 +2,20 @@ let data;
 let analysis;
 
 async function loadChartData(){
-  try {
     const response = await fetch("/api/chart-data");
     if (!response.ok){
       throw new Error(`Failed to load chart data, ${response.status}`);
     }
     data = await response.json();
     drawVolatilityChart(data);
-  }
 }
 
 async function loadAnalysisOutput(){
-  try {
     const response = await fetch("/api/forecast");
     if (!response.ok){
       throw new Error(`Failed to load forecast data, ${response.status}`);
     }
     analysis = await response.json();
-  }
 }
 
 function drawVolatilityChart(data) {
