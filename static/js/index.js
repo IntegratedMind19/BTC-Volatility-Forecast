@@ -27,7 +27,7 @@ function drawVolatilityChart() {
   
     const trace = {
         x: data.dates,
-        y: data.volatility,
+        y: data.vol,
         type: "scatter",
         mode: "lines",
         name: "Volatility"
