@@ -1,3 +1,6 @@
+let data;
+let analysis;
+
 async function loadChartData(){
   try {
     const response = await fetch("/api/chart-data");
@@ -5,7 +8,17 @@ async function loadChartData(){
     drawVolChart(data);
   }
   catch(error) {
-    console.error(error)
+    console.error(error);
+  }
+}
+
+async function loadAnalysisOutput(){
+  try {
+    const response = await fetch("/api/forecast");
+    const analysis = await response.json();
+  }
+  catch(error){
+    console.error(error);
   }
 }
 
@@ -18,9 +31,17 @@ function drawVolatilityChart(data) {
         name: "Volatility"
     };
 
-    Plotly.newPlot(
+    const prediction = {
+        x: ["Tomorrow"],
+        y: [analysis.prediction.predicted_volatility],
+        type: "scatter",
+        mode: "lines",
+        name: "prediction"
+    };
+
+    Plotly.react(
         "chart",
-        [trace],
+        [trace, prediction],
         {
             title: "Bitcoin Volatility (1 M)"
         }
@@ -36,7 +57,7 @@ function drawPriceData(data){
         name: "Price"
     };
 
-    Plotly.newPlot(
+    Plotly.react(
       "chart",
       [trace],
       {
@@ -45,4 +66,8 @@ function drawPriceData(data){
     );
 }
 
-loadChartData()
+loadChartData();
+loadAnalysisOutput();
+
+document.getElementById("price-btn").addEventListener("click", () => drawPriceData(data));
+document.getElementById("vol-btn").addEventListener("click", () => drawVolatilityChart(data));
