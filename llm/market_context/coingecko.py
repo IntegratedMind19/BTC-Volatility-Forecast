@@ -36,4 +36,4 @@ def retrieve_bitcoin_market_data():
             "error": str(error),
     }
 
-retrieve_bitcoin_market_data()
+print(retrieve_bitcoin_market_data())
