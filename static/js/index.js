@@ -23,6 +23,7 @@ async function loadAnalysisOutput(){
 }
 
 function drawVolatilityChart(data) {
+    console.log("Volatility button clicked");
     if (!data || !analysis){
       console.error("Chart or analysis is unavailable.");
     }
@@ -53,6 +54,7 @@ function drawVolatilityChart(data) {
 }
 
 function drawPriceData(data){
+    console.log("Price button clicked");
     if (!data){
       console.error("Chart data is not available");
     }
