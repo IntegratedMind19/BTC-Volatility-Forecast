@@ -35,3 +35,5 @@ def retrieve_bitcoin_market_data():
             "source": "CoinGecko",
             "error": str(error),
     }
+
+retrieve_bitcoin_market_data()
