@@ -19,16 +19,16 @@ def forecast():
 @app.get("/api/chart-data")
 def get_chart_data():
   chart_data = get_latest_vol_and_price()
-  chart_data["dates"] = [date.today() - date.timedelta(days = t) for t in range(29,-1,-1)]
+  chart_data["dates"] = [date.today() - timedelta(days = t) for t in range(29,-1,-1)]
   return jsonify(chart_data)
 
 @app.route("/forecast")
 def forecast_explanation():
-  render_template("forecast.html")
+  return render_template("forecast.html")
 
 @app.route("/about")
 def about():
-  render_template("about.html")
+  return render_template("about.html")
 
 if __name__ == "__main__":
   app.run(debug = True)
