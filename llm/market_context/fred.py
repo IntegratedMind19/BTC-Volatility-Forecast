@@ -47,3 +47,5 @@ def retrieve_macro_data():
     "market_volatility_index": ["VIXCLS", "points"],
   }
   return {name: fetch_fed_data(series[0], series[1]) for name, series in FRED_SERIES.items()}
+
+print(retrieve_macro_data())
