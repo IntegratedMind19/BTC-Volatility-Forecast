@@ -30,7 +30,7 @@ function drawVolatilityChart() {
         mode: "lines",
         name: "Volatility"
     };
-
+/*
     const prediction = {
         x: ["Tomorrow"],
         y: [analysis.prediction.predicted_volatility],
@@ -38,10 +38,11 @@ function drawVolatilityChart() {
         mode: "lines",
         name: "prediction"
     };
+ */
 
     Plotly.react(
         "chart",
-        [trace, prediction],
+        [trace],
         {
             title: "Bitcoin Volatility (1 M)"
         }
