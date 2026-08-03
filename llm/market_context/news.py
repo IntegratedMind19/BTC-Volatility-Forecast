@@ -41,3 +41,5 @@ def extract_btc_relevance(item: dict[str, Any]) -> float | None:
       except (TypeError, ValueError):
         return None
   return None
+
+print(retrieve_bitcoin_news(20))
