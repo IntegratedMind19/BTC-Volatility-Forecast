@@ -87,4 +87,3 @@ document.getElementById("price-btn").addEventListener("click", drawPriceData);
 document.getElementById("vol-btn").addEventListener("click", drawVolatilityChart);
 console.log("JavaScript file loaded successfully");
 initialize();
-console.log(analysis);
