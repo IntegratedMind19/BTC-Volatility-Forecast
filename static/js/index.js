@@ -35,7 +35,7 @@ function drawVolatilityChart() {
 
     const prediction = {
         x: ["Tomorrow"],
-        y: [analysis.prediction.predicted_volatility],
+        y: [analysis.analysis.prediction.predicted_volatility],
         type: "scatter",
         mode: "lines",
         name: "prediction"
