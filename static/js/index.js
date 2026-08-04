@@ -36,7 +36,7 @@ function drawVolatilityChart() {
         x: ["Tomorrow"],
         y: [analysis.analysis.prediction.predicted_volatility],
         type: "scatter",
-        mode: "lines",
+        mode: "markers",
         name: "prediction"
     };
 
