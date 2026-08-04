@@ -12,6 +12,7 @@ def index():
 @app.get("/api/forecast")
 def forecast():
   result = generate_report()
+  tomorrow_date = (date.today() - timedelta(days = -1)).strftime("%d/%m/%Y")
   if result.get("status") != "success":
     return jsonify(result), 500
   return jsonify(result), 200
