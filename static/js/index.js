@@ -51,8 +51,11 @@ function drawVolatilityChart() {
                     "text": "Volatility"
                 }
             },
-            margin: { b: 100 }
-        }
+            margin: { b: 100 },
+            autosize: true
+        },
+        
+        {responsive: true}
     );
 }
 
@@ -88,8 +91,11 @@ function drawPriceChart(){
                     "text": "Price (in USD)"
                 }
             },
-            margin: { b: 100 }
-        }
+            margin: { b: 100 },
+            autosize: true
+        },
+        
+        { responsive: true }
     );
 }
 
