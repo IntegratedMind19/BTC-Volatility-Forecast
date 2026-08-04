@@ -9,20 +9,11 @@ async function loadChartData(){
     data = await response.json();
 }
 
-async function loadAnalysisOutput(){
-    const response = await fetch("/api/forecast");
-    if (!response.ok){
-      console.error(`Failed to load forecast data, ${response.status}`);
-        return;
-    }
-    analysis = await response.json();
-}
-
 function drawVolatilityChart() {
     console.log("Volatility button clicked");
     
-    if (!data || !analysis){
-      throw new Error("Chart or analysis is unavailable.");
+    if (!data){
+      throw new Error("Chart data is not available.");
     }
   
     const trace = {
@@ -34,8 +25,8 @@ function drawVolatilityChart() {
     };
 
     const prediction = {
-        x: [analysis.tomorrow_date],
-        y: [analysis.analysis.prediction.predicted_volatility],
+        x: [data.tomorrow_date],
+        y: [data.prediction],
         type: "scatter",
         mode: "markers",
         name: "prediction"
@@ -74,10 +65,10 @@ function drawPriceChart(){
 
 async function initialize(){
   try {
-    await Promise.all([loadChartData(), loadAnalysisOutput()]);
-      console.log("Chart data:", data);
-      console.log("Analysis data:", analysis);
-    drawVolatilityChart();
+    await loadChartData();
+    console.log("Chart data:", data);
+    console.log("Analysis data:", analysis);
+    await drawVolatilityChart();
   }
   catch(error){
     console.error(error);
