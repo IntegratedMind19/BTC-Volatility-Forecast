@@ -13,7 +13,6 @@ def index():
 @app.get("/api/forecast")
 def forecast():
   result = analysis
-  result["tomorrow_date"] = (date.today() - timedelta(days = -1)).strftime("%d/%m/%Y")
   if result.get("status") != "success":
     return jsonify(result), 500
   return jsonify(result), 200
@@ -21,7 +20,9 @@ def forecast():
 @app.get("/api/chart-data")
 def get_chart_data():
   chart_data = get_latest_vol_and_price()
+  chart_data["prediction"] = analysis["analysis"]["prediction"]["predicted_volatility"]
   chart_data["dates"] = [(date.today() - timedelta(days = t)).strftime("%d/%m/%Y") for t in range(29,-1,-1)]
+  chart_data["tomorrow_date"] = (date.today() - timedelta(days = -1)).strftime("%d/%m/%Y")
   return jsonify(chart_data)
 
 @app.route("/forecast")
