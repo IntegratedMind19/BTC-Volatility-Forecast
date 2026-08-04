@@ -16,26 +16,27 @@ def retrieve_bitcoin_news(limit = 20):
     "limit": limit,
     "apikey": api_key
   }
-  response = requests.get(base_url, params = params, timeout = 10)
-  response.raise_for_status()
-  data = response.json()
-  feeds = data.get("feed")
-  if not feeds:
-    return {"information": "Alpha Vantage API has exceeded the daily limit usage."}
-  articles = list()
-  for item in feeds:
-    articles.append(
-      {
-                    "title": item.get("title"),
-                    "summary": item.get("summary"),
-                    "published_at": item.get("time_published"),
-                    "source_name": item.get("source"),
-                    "source_url": item.get("url"),
-                    "overall_sentiment_label": item.get("overall_sentiment_label"),
-                    "relevance_score": extract_btc_relevance(item)
-      }
-    )
-  return articles
+  try:
+    response = requests.get(base_url, params = params, timeout = 10)
+    response.raise_for_status()
+    data = response.json()
+    feeds = data.get("feed")
+    articles = list()
+    for item in feeds:
+      articles.append(
+        {
+                      "title": item.get("title"),
+                      "summary": item.get("summary"),
+                      "published_at": item.get("time_published"),
+                      "source_name": item.get("source"),
+                      "source_url": item.get("url"),
+                      "overall_sentiment_label": item.get("overall_sentiment_label"),
+                      "relevance_score": extract_btc_relevance(item)
+        }
+      )
+    return articles
+  except Exception as exc:
+    return {"information": "News data is not available at the moment"}
 
 def extract_btc_relevance(item: dict[str, Any]) -> float | None:
   for ticker in item.get("ticker_sentiment"):
