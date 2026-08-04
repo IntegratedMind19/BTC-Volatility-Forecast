@@ -16,5 +16,5 @@ print(".env loaded:", loaded)
 print("FRED key available:", bool(os.getenv("FRED_API_KEY")))
 print(
     "Alpha Vantage key available:",
-    bool(os.getenv("ALPHA_VANTAGE_API_KEY"))
+    bool(os.getenv("ALPHA_VANTAGE_KEY"))
 )
