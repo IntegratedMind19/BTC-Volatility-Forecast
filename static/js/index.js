@@ -12,7 +12,8 @@ async function loadChartData(){
 async function loadAnalysisOutput(){
     const response = await fetch("/api/forecast");
     if (!response.ok){
-      throw new Error(`Failed to load forecast data, ${response.status}`);
+      console.error(`Failed to load forecast data, ${response.status}`);
+        return;
     }
     analysis = await response.json();
 }
@@ -33,7 +34,7 @@ function drawVolatilityChart() {
     };
 
     const prediction = {
-        x: ["Tomorrow"],
+        x: [analysis.tomorrow_date],
         y: [analysis.analysis.prediction.predicted_volatility],
         type: "scatter",
         mode: "markers",
@@ -49,7 +50,7 @@ function drawVolatilityChart() {
     );
 }
 
-function drawPriceData(){
+function drawPriceChart(){
     console.log("Price button clicked");
     if (!data){
       throw new Error("Chart data is not available");
@@ -76,14 +77,14 @@ async function initialize(){
     await Promise.all([loadChartData(), loadAnalysisOutput()]);
       console.log("Chart data:", data);
       console.log("Analysis data:", analysis);
-    drawVolatilityChart(data);
+    drawVolatilityChart();
   }
   catch(error){
     console.error(error);
   }
 }
 
-document.getElementById("price-btn").addEventListener("click", drawPriceData);
+document.getElementById("price-btn").addEventListener("click", drawPriceChart);
 document.getElementById("vol-btn").addEventListener("click", drawVolatilityChart);
 console.log("JavaScript file loaded successfully");
 initialize();
