@@ -41,14 +41,17 @@ function drawVolatilityChart() {
             },
             xaxis: {
                 "title": {
-                    "text": "Dates (last 30 days)"
-                }
+                    "text": "Dates (last 30 days)",
+                    standoff: 30
+                },
+                tickangle: -45
             },
             yaxis: {
                 "title": {
                     "text": "Volatility"
                 }
-            }
+            },
+            margin: { b: 100 }
         }
     );
 }
@@ -75,14 +78,17 @@ function drawPriceChart(){
             },
             xaxis: {
                 "title": {
-                    "text": "Dates (last 30 days)"
-                }
+                    "text": "Dates (last 30 days)",
+                    standoff: 30
+                },
+                tickangle: -45
             },
             yaxis: {
                 "title": {
                     "text": "Price (in USD)"
                 }
-            }
+            },
+            margin: { b: 100 }
         }
     );
 }
