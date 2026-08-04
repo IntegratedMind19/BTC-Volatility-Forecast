@@ -19,6 +19,7 @@ def retrieve_bitcoin_news(limit = 20):
   response = requests.get(base_url, params = params, timeout = 10)
   response.raise_for_status()
   data = response.json()
+  return data
   feeds = data.get("feed")
   articles = list()
   for item in feeds:
