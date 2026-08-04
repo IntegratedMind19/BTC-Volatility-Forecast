@@ -51,7 +51,7 @@ function drawVolatilityChart() {
                     standoff: 30
                 }
             },
-            margin: { b: 100 },
+            margin: { b: 200 },
             autosize: true
         },
         
@@ -92,7 +92,7 @@ function drawPriceChart(){
                     standoff: 30
                 }
             },
-            margin: { b: 100 },
+            margin: { b: 200 },
             autosize: true
         },
         
