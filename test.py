@@ -6,4 +6,4 @@ load_dotenv()
 print("FRED:", os.getenv("FRED_API_KEY"))
 
 load_dotenv()
-print("Alpha Vantage:", bool(os.getenv("ALPHA_VANTAGE_API_KEY")))
+print("Alpha Vantage:", os.getenv("ALPHA_VANTAGE_API_KEY"))
