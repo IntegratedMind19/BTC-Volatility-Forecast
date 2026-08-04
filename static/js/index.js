@@ -47,7 +47,8 @@ function drawVolatilityChart() {
             },
             yaxis: {
                 "title": {
-                    "text": "Volatility"
+                    "text": "Volatility",
+                    standoff: 30
                 }
             },
             margin: { b: 100 },
@@ -87,7 +88,8 @@ function drawPriceChart(){
             },
             yaxis: {
                 "title": {
-                    "text": "Price (in USD)"
+                    "text": "Price (in USD)",
+                    standoff: 30
                 }
             },
             margin: { b: 100 },
