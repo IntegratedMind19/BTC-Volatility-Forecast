@@ -12,7 +12,6 @@ async function loadChartData(){
 async function loadAnalysisOutput(){
     const response = await fetch("/api/forecast");
     if (!response.ok){
-        console.log("AAAAAA");
       throw new Error(`Failed to load forecast data, ${response.status}`);
     }
     analysis = await response.json();
@@ -85,5 +84,5 @@ async function initialize(){
 document.getElementById("price-btn").addEventListener("click", drawPriceData);
 document.getElementById("vol-btn").addEventListener("click", drawVolatilityChart);
 console.log("JavaScript file loaded successfully");
-console.log(analysis);
 initialize();
+console.log(analysis);
