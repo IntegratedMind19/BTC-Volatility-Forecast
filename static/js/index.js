@@ -1,5 +1,4 @@
 let data;
-let analysis;
 
 async function loadChartData(){
     const response = await fetch("/api/chart-data");
