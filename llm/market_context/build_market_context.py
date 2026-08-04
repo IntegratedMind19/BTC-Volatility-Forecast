@@ -11,6 +11,7 @@ def market_context_builder():
   market_context_dict["macro_data"] = retrieve_macro_data()
   
   articles = retrieve_bitcoin_news(20)
+  return articles
   market_context_dict["news"] = [article for article in articles if (article["summary"] and article["relevance_score"] > 0.2)][:10]
   
   market_context_dict["coverage"]["crypto_market"] = market_context_dict["market_data"]["status"]
