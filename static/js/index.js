@@ -85,4 +85,5 @@ async function initialize(){
 document.getElementById("price-btn").addEventListener("click", drawPriceData);
 document.getElementById("vol-btn").addEventListener("click", drawVolatilityChart);
 console.log("JavaScript file loaded successfully");
+console.log(analysis);
 initialize();
