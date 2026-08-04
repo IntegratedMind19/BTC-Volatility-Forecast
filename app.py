@@ -3,6 +3,7 @@ from llm.client import generate_report
 from llm.analysis_module import get_analysis_data, get_latest_vol_and_price
 from datetime import date, timedelta
 
+analysis = generate_report()
 app = Flask(__name__, template_folder = "template")
 
 @app.route("/")
@@ -11,7 +12,7 @@ def index():
 
 @app.get("/api/forecast")
 def forecast():
-  result = generate_report()
+  result = analysis
   result["tomorrow_date"] = (date.today() - timedelta(days = -1)).strftime("%d/%m/%Y")
   if result.get("status") != "success":
     return jsonify(result), 500
