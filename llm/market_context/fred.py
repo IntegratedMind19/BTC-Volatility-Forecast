@@ -43,11 +43,14 @@ def fetch_fed_data(series_id: str, unit: str):
     }
 
 def retrieve_macro_data():
-  FRED_SERIES = {
-    "effective_federal_funds_rate": ["DFF", "%"],
-    "ten_year_treasury_yield": ["DGS10", "%"],
-    "market_volatility_index": ["VIXCLS", "points"],
-  }
-  return {name: fetch_fed_data(series[0], series[1]) for name, series in FRED_SERIES.items()}
+  try:
+    FRED_SERIES = {
+      "effective_federal_funds_rate": ["DFF", "%"],
+      "ten_year_treasury_yield": ["DGS10", "%"],
+      "market_volatility_index": ["VIXCLS", "points"],
+    }
+    return {name: fetch_fed_data(series[0], series[1]) for name, series in FRED_SERIES.items()}
+  except Exception as exc:
+    return {"information": "FRED data is not available at the moment"}
 
 print(retrieve_macro_data())
