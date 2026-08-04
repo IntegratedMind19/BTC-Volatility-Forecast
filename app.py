@@ -1,11 +1,10 @@
+from pathlib import Path
+import os
+from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template
 from llm.client import generate_report
 from llm.analysis_module import get_analysis_data, get_latest_vol_and_price
 from datetime import date, timedelta
-from pathlib import Path
-import os
-
-from dotenv import load_dotenv
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
