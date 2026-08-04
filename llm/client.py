@@ -21,7 +21,7 @@ def generate_report():
   prompt_template_dir = f"{root_dir}/prompt"
   
   analysis_output = get_analysis_data()
-  market_context = {"status": "unavailable"}
+  market_context = market_context_builder()
   
   response = create_report(knowledge_base_dir, prompt_template_dir, analysis_output, market_context, client, "gpt-5.5")
   
