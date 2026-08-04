@@ -1,7 +1,9 @@
 import os
 import requests
+from dotenv import load_dotenv
 
 def fetch_fed_data(series_id: str, unit: str):
+  load_dotenv()
   api_key = os.getenv("FRED_API_KEY")
   if not api_key:
     raise RuntimeError("FRED API key not found")
