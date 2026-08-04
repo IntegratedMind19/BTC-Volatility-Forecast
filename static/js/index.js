@@ -42,7 +42,7 @@ function drawVolatilityChart() {
 
     Plotly.react(
         "chart",
-        [trace],
+        [trace, prediction],
         {
             title: "Bitcoin Volatility (1 M)"
         }
@@ -74,6 +74,8 @@ function drawPriceData(){
 async function initialize(){
   try {
     await Promise.all([loadChartData(), loadAnalysisOutput()]);
+      console.log("Chart data:", data);
+      console.log("Analysis data:", analysis);
     drawVolatilityChart(data);
   }
   catch(error){
