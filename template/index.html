@@ -1,7 +1,14 @@
 <html>
-  <script src="https://cdn.plot.ly/plotly-3.6.0.min.js"></script>
-  <button id="price-btn">Price</button>
-  <button id="vol-btn">Volatility</button>
-  <div id="chart"></div>
-  <script src="{{url_for('static', filename='js/index.js') }}"></script>
+  <head>
+    <meta charset="UTF-8">
+    <title>Bitcoin Volatility Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <script src="https://cdn.plot.ly/plotly-3.6.0.min.js"></script>
+    <button id="price-btn">Price</button>
+    <button id="vol-btn">Volatility</button>
+    <div id="chart"></div>
+    <script src="{{url_for('static', filename='js/index.js') }}"></script>
+  </body>
 </html>
