@@ -36,7 +36,19 @@ function drawVolatilityChart() {
         "chart",
         [trace, prediction],
         {
-            title: "Bitcoin Volatility (1 M)"
+            title: {
+                "text": "Bitcoin Volatility"
+            },
+            xaxis: {
+                "title": {
+                    "text": "Dates (last 30 days)"
+                }
+            },
+            yaxis: {
+                "title": {
+                    "text": "Volatility"
+                }
+            }
         }
     );
 }
@@ -57,17 +69,27 @@ function drawPriceChart(){
     Plotly.react(
       "chart",
       [trace],
-      {
-        title: "Bitcoin Price (1 M)"
-      }
+        {
+            title: {
+                "text": "Bitcoin Price"
+            },
+            xaxis: {
+                "title": {
+                    "text": "Dates (last 30 days)"
+                }
+            },
+            yaxis: {
+                "title": {
+                    "text": "Price (in USD)"
+                }
+            }
+        }
     );
 }
 
 async function initialize(){
   try {
     await loadChartData();
-    console.log("Chart data:", data);
-    console.log("Analysis data:", analysis);
     await drawVolatilityChart();
   }
   catch(error){
