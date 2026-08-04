@@ -4,6 +4,8 @@ from datetime import datetime, timezone
 
 def retrieve_bitcoin_market_data():
   api_key = os.getenv("CG_API_KEY")
+  if not api_key:
+    raise RuntimeError("CoinGecko API key not available")
   base_url = "https://api.coingecko.com/api/v3/simple/price"
   params = {
         "ids": "bitcoin",
@@ -35,5 +37,3 @@ def retrieve_bitcoin_market_data():
             "source": "CoinGecko",
             "error": str(error),
     }
-
-print(retrieve_bitcoin_market_data())
