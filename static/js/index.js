@@ -85,7 +85,7 @@ function drawVolatilityChart() {
                 color: chart_theme.text
             },
             font: {color: chart_theme.text},
-            paper_bgcolor: "black",
+            paper_bgcolor: chart_theme.background,
             plot_bgcolor: chart_theme.background,
             xaxis: {
                 "title": {
