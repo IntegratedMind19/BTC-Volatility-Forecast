@@ -14,7 +14,12 @@ function toggleTheme(){
     const current_theme = document.documentElement.getAttribute("data-theme");
     const next_theme = (current_theme === "dark" ? "light" : "dark");
     applyTheme(next_theme);
-    localStorage.setItem(theme, next_theme);
+    localStorage.setItem("theme", next_theme);
+}
+
+function loadSavedTheme(){
+    const saved_theme = localStorage.getItem("theme");
+    applyTheme(saved_theme");
 }
 
 async function loadChartData(){
