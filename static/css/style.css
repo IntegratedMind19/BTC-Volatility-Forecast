@@ -16,3 +16,7 @@ button {
     cursor: pointer;
     font-size: 16px;
 }
+
+button:hover {
+  background-color: #C7C1C1;
+}
