@@ -32,5 +32,5 @@ button {
 }
 
 button:hover {
-  background-color: #C7C1C1;
+  background-color: var(--button-hover);
 }
