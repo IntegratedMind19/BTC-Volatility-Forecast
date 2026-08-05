@@ -9,7 +9,7 @@
   justify-content: flex-end;
 }
 
-.theme-toggle {
+button {
     padding: 10px 16px;
     border: 5px solid var(--border-color);
     border-radius: 8px;
