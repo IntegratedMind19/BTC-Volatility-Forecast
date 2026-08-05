@@ -3,3 +3,8 @@
   height: 650px;
   margin: 0 auto;
 }
+
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+}
