@@ -10,6 +10,12 @@ function applyTheme(theme){
     }
 }
 
+function toggleTheme(){
+    const current_theme = document.documentElement.getAttribute("data-theme");
+    const next_theme = (current_theme === "dark" ? "light" : "dark");
+    applyTheme(next_theme);
+}
+
 async function loadChartData(){
     const response = await fetch("/api/chart-data");
     if (!response.ok){
@@ -122,5 +128,6 @@ async function initialize(){
 
 document.getElementById("price-btn").addEventListener("click", drawPriceChart);
 document.getElementById("vol-btn").addEventListener("click", drawVolatilityChart);
+themebutton.addEventListener("click", toggleTheme);
 console.log("JavaScript file loaded successfully");
 initialize();
