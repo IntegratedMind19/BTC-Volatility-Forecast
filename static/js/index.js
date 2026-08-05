@@ -125,6 +125,7 @@ function drawPriceChart(){
 async function initialize(){
   try {
     await loadChartData();
+    await loadSavedTheme();
     await drawVolatilityChart();
   }
   catch(error){
