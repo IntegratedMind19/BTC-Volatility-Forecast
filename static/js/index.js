@@ -19,7 +19,12 @@ function toggleTheme(){
 
 function loadSavedTheme(){
     const saved_theme = localStorage.getItem("theme");
-    applyTheme("saved_theme");
+    if (saved_theme === "dark" || saved_theme === "light") {
+        applyTheme(saved_theme);
+    }
+    else {
+        applyTheme("light");
+    }
 }
 
 async function loadChartData(){
