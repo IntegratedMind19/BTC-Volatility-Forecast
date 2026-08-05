@@ -1,4 +1,5 @@
 let data;
+current_chart = "volatility";
 const themebutton = document.getElementById("theme-toggle");
 
 function applyTheme(theme){
@@ -15,6 +16,12 @@ function toggleTheme(){
     const next_theme = (current_theme === "dark" ? "light" : "dark");
     applyTheme(next_theme);
     localStorage.setItem("theme", next_theme);
+    if (current_chart === "volatility"){
+        drawVolatilityChart();
+    }
+    else {
+        drawPriceChart();
+    }
 }
 
 function loadSavedTheme(){
@@ -54,6 +61,7 @@ async function loadChartData(){
 }
 
 function drawVolatilityChart() {
+    current_chart = "volatility";
     console.log("Volatility button clicked");
     
     if (!data){
@@ -113,6 +121,7 @@ function drawVolatilityChart() {
 }
 
 function drawPriceChart(){
+    current_chart = "price";
     console.log("Price button clicked");
     if (!data){
       throw new Error("Chart data is not available");
