@@ -27,6 +27,24 @@ function loadSavedTheme(){
     }
 }
 
+function getChartTheme(){
+    current_theme = document.documentElement.getAttribute("data-theme");
+    if (current_theme === "dark"){
+        return {
+            background: "#121212",
+            text: "#f1f1f1",
+            grid: "#3a3a3a"
+        };
+    }
+    else {
+        return {
+            background: "#ffffff",
+            text: "#222222",
+            grid: "#e5e5e5"
+        };
+    }
+}
+
 async function loadChartData(){
     const response = await fetch("/api/chart-data");
     if (!response.ok){
@@ -57,26 +75,34 @@ function drawVolatilityChart() {
         mode: "markers",
         name: "prediction"
     };
-
+    chart_theme = getChartTheme();
     Plotly.react(
         "chart",
         [trace, prediction],
         {
             title: {
-                "text": "Bitcoin Volatility"
+                "text": "Bitcoin Volatility",
+                color: chart_theme.text
             },
+            font: {color: chart_theme.text},
+            paper_bgcolor: chart_theme.background,
+            plot_bgcolor: chart_theme.background,
             xaxis: {
                 "title": {
                     "text": "Dates (last 30 days)",
-                    standoff: 30
+                    standoff: 30,
+                    color: chart_theme.text
                 },
-                tickangle: -45
+                tickangle: -45,
+                gridcolor: chart_theme.grid
             },
             yaxis: {
                 "title": {
                     "text": "Volatility",
-                    standoff: 30
-                }
+                    standoff: 30,
+                    color: chart_theme.text
+                },
+                gridcolor: chart_theme.grid
             },
             margin: { b: 200 },
             autosize: true
@@ -98,26 +124,34 @@ function drawPriceChart(){
         mode: "lines",
         name: "Price"
     };
-
+    const chart_theme = getChartTheme();
     Plotly.react(
       "chart",
       [trace],
         {
             title: {
-                "text": "Bitcoin Price"
+                "text": "Bitcoin Price",
+                color: chart_theme.text
             },
+            font: { color: chart_theme.text },
+            paper_bgcolor: chart_theme.background,
+            plot_bgcolor: chart_theme.background,
             xaxis: {
                 "title": {
                     "text": "Dates (last 30 days)",
-                    standoff: 30
+                    standoff: 30,
+                    color: chart_theme.text
                 },
-                tickangle: -45
+                tickangle: -45,
+                gridcolor: chart_theme.grid
             },
             yaxis: {
                 "title": {
                     "text": "Price (in USD)",
-                    standoff: 30
-                }
+                    standoff: 30,
+                    color: chart_theme.text
+                },
+                gridcolor: chart_theme.grid
             },
             margin: { b: 200 },
             autosize: true
