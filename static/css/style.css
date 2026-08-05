@@ -11,10 +11,8 @@
 
 .theme-toggle {
     padding: 10px 16px;
-    border: 1px solid var(--border-color);
+    border: 5px solid var(--border-color);
     border-radius: 8px;
-    background-color: var(--button-background);
-    color: var(--button-text);
     cursor: pointer;
     font-size: 16px;
 }
