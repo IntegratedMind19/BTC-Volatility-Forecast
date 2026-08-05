@@ -1,4 +1,14 @@
 let data;
+const themebutton = document.getElementById("theme-toggle");
+
+function applyTheme(theme){
+    document.documentElement.setAttribute("data-theme", theme);
+    if (theme === "dark"){
+        themebutton.textContent = "Light mode";
+    } else {
+        themebutton.textContent = "Dark mode";
+    }
+}
 
 async function loadChartData(){
     const response = await fetch("/api/chart-data");
