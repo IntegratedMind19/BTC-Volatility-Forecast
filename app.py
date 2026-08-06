@@ -4,7 +4,7 @@ from llm.analysis_module import get_analysis_data, get_latest_vol_and_price
 from datetime import date, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
 from scheduler import generated_scheduled_report
-from forecast_store import load_report
+from forecast_store import load_report, load_status
 
 scheduler = BackgroundScheduler(timezone = "UTC")
 
@@ -33,6 +33,25 @@ def forecast():
   if result.get("status") != "success":
     return jsonify(result), 500
   return jsonify(result), 200
+
+@app.get("/api/forecast/latest")
+def get_latest_report():
+  latest_report = load_report()
+  if not latest_report or latest_report is None:
+    return jsonify(
+      {
+        "status": "unavailable",
+        "error": "No report available at the moment"
+      }
+    ), 400
+  return jsonify(latest_report), 200
+
+@app.get("/api/forecast/status")
+def get_status():
+  status = load_status()
+  if not status or status is None:
+    return jsonify({"information": "status is not available"}), 400
+  return jsonify(status), 200
 
 @app.get("/api/chart-data")
 def get_chart_data():
