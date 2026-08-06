@@ -10,6 +10,7 @@
 
     --chart-background: #ffffff;
     --chart-grid-color: #e5e5e5;
+    --secondary-text: #666666;
 }
 
 html[data-theme="dark"] {
@@ -24,6 +25,7 @@ html[data-theme="dark"] {
 
     --chart-background: #121212;
     --chart-grid-color: #3a3a3a;
+    --secondary-text: #b0b0b0;
 }
 
 body {
@@ -54,6 +56,35 @@ button {
 
 button:hover {
   background-color: var(--button-hover);
+}
+
+.report-access {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.report-button {
+    padding: 10px 16px;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.report-button:hover {
+  background-color: var(--button-hover);    
+}
+
+#model-version {
+    color: var(--secondary-text);
+    font-size: 13px;
 }
 
 #chart {
