@@ -65,8 +65,9 @@ button:hover {
 }
 
 .report-access {
+    position: fixed;
     right: 20px;
-    bottom: 150px;
+    bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
