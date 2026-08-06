@@ -84,11 +84,9 @@ button:hover {
   background-color: var(--button-hover);    
 }
 
-.back-access {
-    top: 20px;
+.report-header {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;    
+    justify-content: space-between;
 }
 
 .back-button {
