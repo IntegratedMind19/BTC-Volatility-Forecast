@@ -33,4 +33,4 @@ def save_status(status: dict[str, Any]) -> None:
 def load_status() -> dict[str, Any] | None:
   if not STATUS_FILE.is_file():
     return None
-  return json.loads(STATUS_FILE.read_text(encoding = "utf-8")
+  return json.loads(STATUS_FILE.read_text(encoding = "utf-8"))
