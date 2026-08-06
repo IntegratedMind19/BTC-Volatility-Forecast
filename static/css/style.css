@@ -87,7 +87,7 @@ button:hover {
 .back-access {
     top: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;    
 }
 
