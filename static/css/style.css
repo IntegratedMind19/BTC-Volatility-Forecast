@@ -76,6 +76,7 @@ button:hover {
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    text-decoration: none;
 }
 
 .report-button:hover {
