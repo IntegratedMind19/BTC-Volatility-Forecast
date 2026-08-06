@@ -1,3 +1,4 @@
+/* Global */
 :root {
     --background-color: #ffffff;
     --text-color: #222222;
@@ -39,12 +40,6 @@ body {
         color 0.25s ease;
 }
 
-.top-bar {
-  top: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
 .header-text {
     color: var(--text-color);
 }
@@ -62,6 +57,29 @@ button {
 
 button:hover {
   background-color: var(--button-hover);
+}
+
+.back-button {
+    padding: 10px 16px;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.back-button:hover {
+  background-color: var(--button-hover);    
+}
+
+/* index.html */
+
+.top-bar {
+  top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .report-access {
@@ -89,26 +107,6 @@ button:hover {
   background-color: var(--button-hover);    
 }
 
-.report-header {
-    display: flex;
-    justify-content: space-between;
-}
-
-.back-button {
-    padding: 10px 16px;
-    background-color: var(--button-background);
-    color: var(--button-text);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
-}
-
-.back-button:hover {
-  background-color: var(--button-hover);    
-}
-
 #model-version {
     color: var(--secondary-text);
     font-size: 13px;
@@ -119,4 +117,11 @@ button:hover {
   height: 650px;
   margin: 0 auto;
   background-color: var(--chart-background);  
+}
+
+/* forecast.html */
+
+.report-header {
+    display: flex;
+    justify-content: space-between;
 }
