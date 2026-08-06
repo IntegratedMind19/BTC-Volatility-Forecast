@@ -51,8 +51,8 @@ body {
 
 button {
     padding: 10px 16px;
-    height: 50px;
-    width: 100px;
+    height: 40px;
+    width: 130px;
     background-color: var(--button-background);
     color: var(--button-text);
     border: 1px solid var(--border-color);
