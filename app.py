@@ -2,6 +2,23 @@ from flask import Flask, jsonify, render_template
 from llm.client import generate_report
 from llm.analysis_module import get_analysis_data, get_latest_vol_and_price
 from datetime import date, timedelta
+from apscheduler.schedulers.background import BackgroundScheduler
+from scheduler import generated_scheduled_report
+from forecast_store import load_report
+
+scheduler = BackgroundScheduler(timezone = "UTC")
+
+scheduler.add_job(
+  generate_scheduled_report,
+  trigger = "cron",
+  hour = "0,4,8,12,16,20",
+  minute = 0,
+  id = "forecast_generation",
+  replace_existing = True
+)
+
+if load_report() is None:
+  generate_scheduled_report()
 
 analysis = generate_report()
 app = Flask(__name__, template_folder = "template")
@@ -34,4 +51,5 @@ def about():
   return render_template("about.html")
 
 if __name__ == "__main__":
-  app.run(debug = True)
+  scheduler.start()
+  app.run(debug = True, use_reloader = False)
