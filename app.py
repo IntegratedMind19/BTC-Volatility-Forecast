@@ -3,7 +3,7 @@ from llm.client import generate_report
 from llm.analysis_module import get_analysis_data, get_latest_vol_and_price
 from datetime import date, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
-from scheduler import generated_scheduled_report
+from scheduler import generate_scheduled_report
 from forecast_store import load_report, load_status
 
 scheduler = BackgroundScheduler(timezone = "UTC")
