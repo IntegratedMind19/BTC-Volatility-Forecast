@@ -5,15 +5,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
-    <header class="top-bar">
+    <header class="report-header">
+      <a href="{{url_for('index')}}" class="back-button">
+        Back
+      </a>
       <button id="theme-toggle" class="theme-toggle">
         Dark mode
       </button>
     </header>
-    <div class="back-access">
-      <a href="{{url_for('index')}}" class="back-button">
-        Back
-      </a>
-    </div>
   </body>
 </html>
