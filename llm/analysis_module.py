@@ -232,8 +232,9 @@ class Confidence:
 
     return {'confidence_level': self.confidence_level, 'confidence_index': self.confidence_index}
 
+forecast_input = ForecastInputs()
+
 def get_analysis_data():
-    forecast_input = ForecastInputs()
     pred = Prediction(forecast_input)
     hist_analysis = HistAnalysis(forecast_input)
     confidence = Confidence(forecast_input, pred, hist_analysis)
@@ -265,7 +266,6 @@ def get_analysis_data():
         return None
 
 def get_latest_vol_and_price():
-    forecast_input = ForecastInputs()
     pred = Prediction(forecast_input)
     return {
             'vol': forecast_input.all_time_volatility.iloc[-30:].tolist(), 
