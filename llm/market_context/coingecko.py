@@ -1,8 +1,10 @@
 import os
 import requests
 from datetime import datetime, timezone
+from dotenv import load_dotenv
 
 def retrieve_bitcoin_market_data():
+  load_dotenv()
   api_key = os.getenv("CG_API_KEY")
   if not api_key:
     raise RuntimeError("CoinGecko API key not available")
