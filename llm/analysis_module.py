@@ -272,3 +272,6 @@ def get_latest_vol_and_price():
             'price': forecast_input.btc["Close"].iloc[-29:].tolist(),
             'prediction': pred.predict()
            }
+
+data = get_latest_vol_and_price()
+print(data['price'])
