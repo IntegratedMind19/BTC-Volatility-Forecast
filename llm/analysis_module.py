@@ -266,7 +266,9 @@ def get_analysis_data():
 
 def get_latest_vol_and_price():
     forecast_input = ForecastInputs()
+    pred = Prediction(forecast_input)
     return {
             'vol': forecast_input.all_time_volatility.iloc[-30:].tolist(), 
-            'price': forecast_input.btc["Close"].iloc[-30:].tolist()
+            'price': forecast_input.btc["Close"].iloc[-30:].tolist(),
+            'prediction': pred.predict()
            }
