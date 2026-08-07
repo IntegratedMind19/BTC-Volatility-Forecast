@@ -7,6 +7,7 @@ from scheduler import generate_scheduled_report
 from forecast_store import load_report, load_status
 
 scheduler = BackgroundScheduler(timezone = "UTC")
+print("Hello")
 
 scheduler.add_job(
   generate_scheduled_report,
