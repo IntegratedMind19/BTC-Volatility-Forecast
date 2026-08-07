@@ -100,7 +100,7 @@ button:hover {
 }
 
 .report-button {
-    padding: 10px 0px;
+    padding: 0px 16px;
     height: 40px;
     background-color: var(--button-background);
     color: var(--button-text);
