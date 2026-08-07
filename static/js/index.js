@@ -139,7 +139,7 @@ function drawPriceChart(){
       [trace],
         {
             title: {
-                "text": "Bitcoin Price",
+                "text": "Bitcoin Close Price",
                 color: chart_theme.text
             },
             font: { color: chart_theme.text },
