@@ -20,7 +20,7 @@ def generate_scheduled_report() -> None:
     if result.get("status") != "success":
       raise RuntimeError("Forecast generation failed.")
     result["model_version"] = model_version
-    save_report(report)
+    save_report(result)
     save_status(
       {
         "status": "ready",
