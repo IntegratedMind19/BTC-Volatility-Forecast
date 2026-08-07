@@ -52,5 +52,3 @@ def retrieve_macro_data():
     return {name: fetch_fed_data(series[0], series[1]) for name, series in FRED_SERIES.items()}
   except Exception as exc:
     return {"information": "FRED data is not available at the moment"}
-
-print(retrieve_macro_data())
