@@ -48,8 +48,8 @@ def get_status():
 @app.get("/api/chart-data")
 def get_chart_data():
   chart_data = get_latest_vol_and_price()
-  chart_data["dates"] = [(date.today(timezone.utc) - timedelta(days = t)).strftime("%d/%m/%Y") for t in range(29,-1,-1)]
-  chart_data["tomorrow_date"] = (date.today() - timedelta(days = -1)).strftime("%d/%m/%Y")
+  chart_data["dates"] = [(datetime.now(timezone.utc).date() - timedelta(days = t)).strftime("%d/%m/%Y") for t in range(29,-1,-1)]
+  chart_data["tomorrow_date"] = (datetime.now(timezone.utc).date() - timedelta(days = -1)).strftime("%d/%m/%Y")
   return jsonify(chart_data)
 
 @app.route("/forecast")
