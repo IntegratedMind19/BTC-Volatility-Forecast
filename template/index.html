@@ -17,13 +17,18 @@
     <button id="price-btn">Price</button>
     <button id="vol-btn">Volatility</button>
     <div id="chart"></div>
-    <div class="report-access">
-      <a href="{{ url_for('forecast_explanation') }}" class="report-button">
-        View forecast explanation
+    <div class="index-footer">
+      <a href="{{ url_for('about') }}" class="about-button">
+        About
       </a>
-      <p id="model-version">
-        Model version: 1.0
-      </p>
+      <div class="report-access">
+        <a href="{{ url_for('forecast_explanation') }}" class="report-button">
+          View forecast explanation
+        </a>
+        <p id="model-version">
+          Model version: 1.0
+        </p>
+      </div>
     </div>
     <script src="{{url_for('static', filename='js/index.js') }}"></script>
   </body>
