@@ -7,7 +7,6 @@ from scheduler import generate_scheduled_report
 from forecast_store import load_report, load_status
 
 scheduler = BackgroundScheduler(timezone = "UTC")
-print("Hello")
 
 scheduler.add_job(
   generate_scheduled_report,
@@ -26,14 +25,6 @@ app = Flask(__name__, template_folder = "template")
 @app.route("/")
 def index():
   return render_template("index.html")
-'''
-@app.get("/api/forecast")
-def forecast():
-  result = analysis
-  if result.get("status") != "success":
-    return jsonify(result), 500
-  return jsonify(result), 200
-'''
 
 @app.get("/api/forecast/latest")
 def get_latest_report():
