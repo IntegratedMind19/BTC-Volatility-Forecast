@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, render_template
 from llm.client import generate_report
 from llm.analysis_module import get_analysis_data, get_latest_vol_and_price
-from datetime import date, timedelta
+from datetime import date, timedelta, timezone
 from apscheduler.schedulers.background import BackgroundScheduler
 from scheduler import generate_scheduled_report
 from forecast_store import load_report, load_status
@@ -48,7 +48,7 @@ def get_status():
 @app.get("/api/chart-data")
 def get_chart_data():
   chart_data = get_latest_vol_and_price()
-  chart_data["dates"] = [(date.today() - timedelta(days = t)).strftime("%d/%m/%Y") for t in range(29,-1,-1)]
+  chart_data["dates"] = [(date.today(timezone.utc) - timedelta(days = t)).strftime("%d/%m/%Y") for t in range(29,-1,-1)]
   chart_data["tomorrow_date"] = (date.today() - timedelta(days = -1)).strftime("%d/%m/%Y")
   return jsonify(chart_data)
 
