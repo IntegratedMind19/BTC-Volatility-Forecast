@@ -31,5 +31,3 @@ def market_context_builder():
     market_context_dict["coverage"]["news"] = "unavailable"
   
   return market_context_dict
-
-print(market_context_builder())
