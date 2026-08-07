@@ -134,7 +134,7 @@ button:hover {
     position: fixed;
     color: var(--secondary-text);
     font-size: 13px;
-    text-align: end;
+    text-align: right;
     bottom: 0px;
 }
 
