@@ -20,19 +20,19 @@ scheduler.add_job(
 if load_report() is None:
   generate_scheduled_report()
 
-analysis = generate_report()
 app = Flask(__name__, template_folder = "template")
 
 @app.route("/")
 def index():
   return render_template("index.html")
-
+'''
 @app.get("/api/forecast")
 def forecast():
   result = analysis
   if result.get("status") != "success":
     return jsonify(result), 500
   return jsonify(result), 200
+'''
 
 @app.get("/api/forecast/latest")
 def get_latest_report():
@@ -56,7 +56,6 @@ def get_status():
 @app.get("/api/chart-data")
 def get_chart_data():
   chart_data = get_latest_vol_and_price()
-  chart_data["prediction"] = analysis["analysis"]["prediction"]["predicted_volatility"]
   chart_data["dates"] = [(date.today() - timedelta(days = t)).strftime("%d/%m/%Y") for t in range(29,-1,-1)]
   chart_data["tomorrow_date"] = (date.today() - timedelta(days = -1)).strftime("%d/%m/%Y")
   return jsonify(chart_data)
