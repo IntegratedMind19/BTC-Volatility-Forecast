@@ -134,6 +134,7 @@ button:hover {
     color: var(--secondary-text);
     font-size: 13px;
     text-align: right;
+    bottom: 5px;
 }
 
 #chart {
