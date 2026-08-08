@@ -14,7 +14,10 @@ scheduler.add_job(
   hour = "0,4,8,12,16,20",
   minute = 0,
   id = "forecast_generation",
-  replace_existing = True
+  replace_existing = True,
+  misfire_grace_time = 4 * 60 * 60,
+  coalesce = True,
+  max_instance = 1
 )
 
 if load_report() is None:
