@@ -17,7 +17,7 @@ scheduler.add_job(
   replace_existing = True,
   misfire_grace_time = 4 * 60 * 60,
   coalesce = True,
-  max_instance = 1
+  max_instances = 1
 )
 
 if load_report() is None:
