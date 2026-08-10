@@ -1,38 +1,5 @@
 let data;
 current_chart = "volatility";
-const themebutton = document.getElementById("theme-toggle");
-
-function applyTheme(theme){
-    document.documentElement.setAttribute("data-theme", theme);
-    if (theme === "dark"){
-        themebutton.textContent = "Light mode";
-    } else {
-        themebutton.textContent = "Dark mode";
-    }
-}
-
-function toggleTheme(){
-    const current_theme = document.documentElement.getAttribute("data-theme");
-    const next_theme = (current_theme === "dark" ? "light" : "dark");
-    applyTheme(next_theme);
-    localStorage.setItem("theme", next_theme);
-    if (current_chart === "volatility"){
-        drawVolatilityChart();
-    }
-    else {
-        drawPriceChart();
-    }
-}
-
-function loadSavedTheme(){
-    const saved_theme = localStorage.getItem("theme");
-    if (saved_theme === "dark" || saved_theme === "light") {
-        applyTheme(saved_theme);
-    }
-    else {
-        applyTheme("light");
-    }
-}
 
 function getChartTheme(){
     current_theme = document.documentElement.getAttribute("data-theme");
@@ -170,10 +137,21 @@ function drawPriceChart(){
     );
 }
 
+function updateCurrentChart(){
+    if(!data){
+        return;
+    }
+    if(current_chart === "volatility"){
+        drawVolatilityChart();
+    }
+    else {
+        drawPriceChart();
+    }
+}
+
 async function initialize(){
   try {
     await loadChartData();
-    await loadSavedTheme();
     await drawVolatilityChart();
   }
   catch(error){
@@ -183,6 +161,6 @@ async function initialize(){
 
 document.getElementById("price-btn").addEventListener("click", drawPriceChart);
 document.getElementById("vol-btn").addEventListener("click", drawVolatilityChart);
-themebutton.addEventListener("click", toggleTheme);
+document.addEventListener("themechange", updateCurrentChart);
 console.log("JavaScript file loaded successfully");
 initialize();
