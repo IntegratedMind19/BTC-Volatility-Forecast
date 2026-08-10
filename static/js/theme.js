@@ -37,3 +37,4 @@ function loadSavedTheme(){
 }
 
 themebutton.addEventListener("click", toggleTheme);
+loadSavedTheme();
