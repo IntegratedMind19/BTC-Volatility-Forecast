@@ -22,10 +22,23 @@
         <h3>Updating forecast report...</h3>
         <p>Please hang on a second while we are renewing the report. This page will automatically be updated.</p>
       </section>
-      <section id="error-screen">
+      <section id="error-screen" hidden>
         <h3>An unexpected error occured!</h3>
         <p>Some error has occured in the report generation. We will fix very soon.</p>
       </section>
+      <section id="report-content" hidden>
+        <div id="report-metadata"></div>
+        <div id="forecast-summary"></div>
+        <div id="forecast-inputs"></div>
+        <div id="feature-interpretation"></div>
+        <div id="historical-trend"></div>
+        <div id="market-context"></div>
+        <div id="risk-guidance"></div>
+        <div id="model-confidence"></div>
+        <div id="model-limitations"></div>
+      </section>
     </main>
+    <script src="{{url_for('static', '/js/forecast.js')}}"></script>
+    <script src="{{url_for('static', '/js/theme.js')}}"></script>
   </body>
 </html>
