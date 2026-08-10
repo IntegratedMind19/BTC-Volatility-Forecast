@@ -65,4 +65,5 @@ def about():
 
 if __name__ == "__main__":
   scheduler.start()
+  generate_scheduled_report()
   app.run(debug = True, use_reloader = False)
