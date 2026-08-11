@@ -60,7 +60,7 @@ async function loadLatestReport(){
   if(!response.ok){
     throw new Error("Latest report is not available at the moment.");
   }
-  const result = response.json();
+  const result = await response.json();
   if(result.status === "unavailable"){
     throw new Error("Latest report is not available at the moment.");
   }
