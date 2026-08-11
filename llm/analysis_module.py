@@ -260,7 +260,7 @@ def get_analysis_data():
                            "date_vol_and_price": {'vol': forecast_input.all_time_volatility.iloc[-30:].tolist(),
                                                   'price': forecast_input.btc["Close"].iloc[-29:].tolist(),
                                                  'date_price': forecast_input.btc["Close"].iloc[-29:].index.strftime('%d/%m/%Y').tolist(),
-                                                 'date_vol': forecast_input.all_time_volatility.iloc[-29:].index.strftime('%d/%m/%Y').tolist()}
+                                                 'date_vol': forecast_input.all_time_volatility.iloc[-29:].index.strftime('%d/%m/%Y').tolist()},
                            "metadata": {"timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
                                         "model_version": "1.0"}
                            }
