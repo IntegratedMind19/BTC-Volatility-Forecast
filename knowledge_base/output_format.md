@@ -22,7 +22,8 @@ Return exactly one JSON object with these fields:
   "market_context": string,
   "risk_guidance": string,
   "model_confidence": string,
-  "model_limitations": string
+  "model_limitations": string,
+  "metadata": string
 }
 
 ---
