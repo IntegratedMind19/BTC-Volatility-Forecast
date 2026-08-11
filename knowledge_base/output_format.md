@@ -12,7 +12,7 @@ File: output_format.md
 
 (maintain the section name)
 
-Return exactly one JSON object with these fields:
+Return one JSON object with exactly these fields:
 
 {
   "forecast_summary": string,
