@@ -267,4 +267,4 @@ def get_analysis_data():
         return None
 
 forecast_input = ForecastInputs()
-print(forecast_input.btc.iloc[:29])
+print(forecast_input.btc.iloc[-29:])
