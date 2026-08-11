@@ -60,7 +60,7 @@ class ForecastInputs:
         self.all_time_volatility = self.btc["garch_volatility"].dropna()
         self.all_time_features_data = self.btc[self.features].dropna().copy()
         self.last_feature_data = self.all_time_features_data.iloc[-1:]
-        #self.btc = self.btc.dropna().copy()
+        self.btc = self.btc.dropna().copy()
 
     def retrieve_features(self):
         self.feature_values = dict()
@@ -267,5 +267,5 @@ def get_analysis_data():
     except Exception as exc:
         return None
 
-forecast_input = ForecastInputs()
-print(forecast_input.btc.iloc[-29:])
+btc_data = yf.download("BTC-USD", start = '2018-01-01')
+print(btc_data.iloc[-29:])
