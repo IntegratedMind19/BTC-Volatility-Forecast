@@ -268,4 +268,4 @@ def get_analysis_data():
         return None
 
 forecast_input = ForecastInputs()
-print(forecast_input.btc["Close"].iloc[-29:].index.tolist())
+print(datetime.fromtimestamp(forecast_input.btc["Close"].iloc[-29:].index.tolist()).strftime('%d/%m/%Y'))
