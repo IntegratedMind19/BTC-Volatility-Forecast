@@ -38,6 +38,7 @@ function pollUntilReady(){
     async () => {
       try {
         status = await retrieveForecastStatus();
+        console.log(status.status);
         if(status.status === "error"){
           showErrorScreen(status.error);
           clearInterval(intervalId);
