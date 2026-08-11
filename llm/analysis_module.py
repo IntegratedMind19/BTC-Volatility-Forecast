@@ -268,4 +268,4 @@ def get_analysis_data():
         return None
 
 forecast_input = ForecastInputs()
-print(forecast_input.all_time_volatility.iloc[-29:].index)
+print(forecast_input.all_time_volatility.iloc[-29:].index.strftime('%d/%m/%Y').tolist())
