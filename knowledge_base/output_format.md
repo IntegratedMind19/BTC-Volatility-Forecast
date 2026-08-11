@@ -82,7 +82,7 @@ Macroeconomic environment:
 One or two sentences based on FRED. (Observation date: YYYY-MM-DD)
 
 Recent developments:
-State maximum three relevant news items. Do not state yet that they do not directly affect the model in each news. (Published at: YYYY-MM-DD HH:MM:SS)
+State maximum three relevant news items. Do not include news which contradicts or is uncorrelated to the forecasted result. State why the selected news aligned with the prediction result in 2-3 sentences. Do not state yet that they do not directly affect the model in each news. (Published at: YYYY-MM-DD HH:MM:SS)
 
 Disclaimer:
 Do not change the wording from the market context json data.
