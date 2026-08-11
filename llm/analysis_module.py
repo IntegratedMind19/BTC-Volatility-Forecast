@@ -60,7 +60,7 @@ class ForecastInputs:
         self.all_time_volatility = self.btc["garch_volatility"].dropna()
         self.all_time_features_data = self.btc[self.features].dropna().copy()
         self.last_feature_data = self.all_time_features_data.iloc[-1:]
-        self.btc = self.btc.dropna().copy()
+        #self.btc = self.btc.dropna().copy()
 
     def retrieve_features(self):
         self.feature_values = dict()
