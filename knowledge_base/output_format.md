@@ -10,20 +10,19 @@ File: output_format.md
 7. Overall Summary
 8. Metadata
 
-(maintain the section name)
+Return one JSON object with exactly these fields (do not change the naming):
 
-Return one JSON object with exactly these fields:
-
-{
-  "forecast_summary": string,
+{"forecast_summary": string,
   "feature_interpretation": string,
   "historical_trend_overview": string,
   "market_context": string,
   "confidence": string,
   "model_limitations": string,
   "overall_summary": string,
-  "metadata": string
-}
+  "metadata": string}
+
+Ensure that the JSON object is loadable.
+Do not put leading or trailing "\n" or "\" when starting or finishing a field. In other words, ensure the JSON produced is parsable/loadable.
 
 ---
 
