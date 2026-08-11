@@ -267,5 +267,5 @@ def get_analysis_data():
     except Exception as exc:
         return None
 
-btc_data = yf.download("BTC-USD", start = '2018-01-01')
-print(btc_data.iloc[-29:])
+forecast_input = ForecastInputs()
+print(forecast_input.all_time_volatility.iloc[-29:].index)
