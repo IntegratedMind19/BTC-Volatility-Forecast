@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template
 from llm.client import generate_report
-from llm.analysis_module import get_analysis_data, get_latest_vol_and_price
+from llm.analysis_module import get_analysis_data
 from datetime import date, timedelta, timezone, datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from scheduler import generate_scheduled_report
