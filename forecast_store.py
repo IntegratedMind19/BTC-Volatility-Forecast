@@ -34,3 +34,5 @@ def load_status() -> dict[str, Any] | None:
   if not STATUS_FILE.is_file():
     return None
   return json.loads(STATUS_FILE.read_text(encoding = "utf-8"))
+
+print(type(load_report))
