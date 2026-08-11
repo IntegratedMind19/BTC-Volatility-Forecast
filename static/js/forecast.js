@@ -61,7 +61,7 @@ async function loadLatestReport(){
   if(result.status === "unavailable"){
     throw new Error("Latest report is not available at the moment.");
   }
-  renderReport();
+  document.getelementById("report-metadata").innerHTML = '<p> ${result.report} </p>'
   showReport();
 }
 
