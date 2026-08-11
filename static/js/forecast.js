@@ -38,7 +38,6 @@ function pollUntilReady(){
     async () => {
       try {
         const status = await retrieveForecastStatus();
-        console.log(status);
         if(status.status === "error"){
           showErrorScreen(status.error);
           clearInterval(intervalId);
@@ -65,7 +64,6 @@ async function loadLatestReport(){
   if(result.status === "unavailable"){
     throw new Error("Latest report is not available at the moment.");
   }
-  console.log(result);
   document.getElementById("report-metadata").innerHTML = `<p> ${result.report} </p>`
   showReport();
 }
