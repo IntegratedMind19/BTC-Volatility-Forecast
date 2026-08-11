@@ -50,8 +50,10 @@ def get_status():
 
 @app.get("/api/chart-data")
 def get_chart_data():
-  chart_data = get_latest_vol_and_price()
-  chart_data["prediction"] = load_report()["analysis"]["prediction"]["predicted_volatility"]
+  report = load_report()
+  chart_data["price"] = report["historical_vol_and_price"]["price"]
+  chart_data["vol"] = report["historical_vol_and_price"]["vol"]
+  chart_data["prediction"] = report["analysis"]["prediction"]["predicted_volatility"]
   chart_data["dates"] = [(datetime.now(timezone.utc).date() - timedelta(days = t)).strftime("%d/%m/%Y") for t in range(29,-1,-1)]
   chart_data["tomorrow_date"] = (datetime.now(timezone.utc).date() - timedelta(days = -1)).strftime("%d/%m/%Y")
   return jsonify(chart_data)
