@@ -52,7 +52,7 @@ function pollUntilReady(){
         clearInterval(intervalId);
       }
     }, 5000
-  )
+  );
 }
 
 async function loadLatestReport(){
