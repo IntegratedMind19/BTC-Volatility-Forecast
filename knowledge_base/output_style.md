@@ -50,3 +50,4 @@ Do not:
 - Invent numerical values
 - Contradict supplied inputs
 - Overstate certainty
+- Explain or state historical price and volatility in the report
