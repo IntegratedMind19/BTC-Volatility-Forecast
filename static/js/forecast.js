@@ -43,7 +43,7 @@ function pollUntilReady(){
           clearInterval(intervalId);
         }
         if(status.status === "ready"){
-          showReport();
+          await loadLatestReport();
           clearInterval(intervalId);
         }
       }
@@ -78,15 +78,18 @@ async function initializeForecastPage(){
       return;
     }
     if(status.status === "ready") {
-      showReport();
-      loadLatestReport();
+      await loadLatestReport();
       return;
     }
     if(status.status === "error") {
-      showErrorScreen(status.error);
-      loadLatestReport();
+      if(!status.previous_report_available){
+        showErrorScreen(status.error);
+      } else {
+        await loadLatestReport();
+      }
       return;
     }
+    showErrorScreen("Forecast status is unknown.");
   }
   catch(error) {
     showErrorScreen(error.message);
