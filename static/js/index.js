@@ -36,7 +36,7 @@ function drawVolatilityChart() {
     }
   
     const trace = {
-        x: data.dates,
+        x: data.date_vol,
         y: data.vol,
         type: "scatter",
         mode: "lines",
@@ -95,7 +95,7 @@ function drawPriceChart(){
     }
     const trace = {
         x: data.dates.slice(0, 29),
-        y: data.price,
+        y: data.date_price,
         type: "scatter",
         mode: "lines",
         name: "Price"
