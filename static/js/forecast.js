@@ -64,7 +64,14 @@ async function loadLatestReport(){
   if(result.status === "unavailable"){
     throw new Error("Latest report is not available at the moment.");
   }
-  document.getElementById("report-metadata").innerHTML = `<p> ${result.report} </p>`
+  document.getElementById("report-metadata").innerHTML = marked.parse(result.report.metadata);
+  document.getElementById("forecast-summary").innerHTML = marked.parse(result.report.forecast_summary);
+  document.getElementById("feature-interpretation").innerHTML = marked.parse(result.report.feature_interpretation);
+  document.getElementById("historical-trend").innerHTML = marked.parse(result.report.historical_trend_overview);
+  document.getElementById("market-context").innerHTML = marked.parse(result.report.market_context);
+  document.getElementById("model-confidence").innerHTML = marked.parse(result.report.confidence);
+  document.getElementById("overall-summary").innerHTML = marked.parse(result.report.overall_summary);
+  document.getElementById("model-limitations").innerHTML = marked.parse(result.report.model_limitations);
   showReport();
 }
 
