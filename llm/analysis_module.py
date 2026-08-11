@@ -265,3 +265,6 @@ def get_analysis_data():
         return analysis_output
     except Exception as exc:
         return None
+
+forecast_input = ForecastInputs()
+print(forecast_input.btc)
