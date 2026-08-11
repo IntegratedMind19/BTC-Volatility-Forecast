@@ -12,9 +12,22 @@ File: output_format.md
 
 (maintain the section name)
 
+Return exactly one JSON object with these fields:
+
+{
+  "forecast": string,
+  "forecast_inputs": string,
+  "feature_interpretation": string,
+  "historical_trend": string,
+  "market_context": string,
+  "risk_guidance": string,
+  "model_confidence": string,
+  "model_limitations": string
+}
+
 ---
 
-# Detailed output format (strictly follow the formatting)
+# Detailed output format each section (strictly follow the formatting)
 
 ## Forecast Summary
 
