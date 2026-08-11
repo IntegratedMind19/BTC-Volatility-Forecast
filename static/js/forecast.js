@@ -39,8 +39,13 @@ function pollUntilReady(){
       try {
         const status = await retrieveForecastStatus();
         if(status.status === "error"){
-          showErrorScreen(status.error);
-          clearInterval(intervalId);
+          if(!status.previous_report_available){
+            showErrorScreen(status.error);
+          } else {
+            console.log(status.error);
+            await loadLatestReport();
+          }
+          return;
         }
         if(status.status === "ready"){
           await loadLatestReport();
