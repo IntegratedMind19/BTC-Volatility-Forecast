@@ -1,4 +1,5 @@
 from openai import OpenAI
+import json
 
 def generate_explanation(client: OpenAI, llm_input: str, model: str):
   try:
@@ -6,6 +7,6 @@ def generate_explanation(client: OpenAI, llm_input: str, model: str):
       model = model,
       input = llm_input
     )
-    return response.output_text.strip()
+    return json.loads(response.output_text.strip())
   except Exception as exc:
     return "Failed to generate proper response. Check whether some issues present."
