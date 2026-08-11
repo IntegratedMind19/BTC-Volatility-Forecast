@@ -78,10 +78,12 @@ async function initializeForecastPage(){
     }
     if(status.status === "ready") {
       showReport();
+      loadLatestReport();
       return;
     }
     if(status.status === "error") {
       showErrorScreen(status.error);
+      loadLatestReport();
       return;
     }
   }
