@@ -15,14 +15,13 @@ File: output_format.md
 Return exactly one JSON object with these fields:
 
 {
-  "forecast": string,
-  "forecast_inputs": string,
+  "forecast_summary": string,
   "feature_interpretation": string,
-  "historical_trend": string,
+  "historical_trend_overview": string,
   "market_context": string,
-  "risk_guidance": string,
-  "model_confidence": string,
+  "confidence": string,
   "model_limitations": string,
+  "overall_summary": string,
   "metadata": string
 }
 
