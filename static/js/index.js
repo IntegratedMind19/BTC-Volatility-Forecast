@@ -94,8 +94,8 @@ function drawPriceChart(){
       throw new Error("Chart data is not available");
     }
     const trace = {
-        x: data.dates.slice(0, 29),
-        y: data.date_price,
+        x: data.date_price,
+        y: data.price,
         type: "scatter",
         mode: "lines",
         name: "Price"
