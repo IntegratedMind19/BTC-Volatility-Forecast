@@ -50,6 +50,7 @@ def get_status():
 @app.get("/api/chart-data")
 def get_chart_data():
   report = load_report()
+  chart_data = dict()
   chart_data["price"] = report["analysis"]["historical_vol_and_price"]["price"]
   chart_data["vol"] = report["analysis"]["historical_vol_and_price"]["vol"]
   chart_data["prediction"] = report["analysis"]["prediction"]["predicted_volatility"]
