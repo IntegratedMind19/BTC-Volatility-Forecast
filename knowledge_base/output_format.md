@@ -89,7 +89,7 @@ Do not change the wording from the market context json data.
 
 ## Confidence
 
-Confidence index: analysis_output ['confidence'] ['confidence_index'] (put confidence_level here, enclosed by brackets)
+Confidence index (max 100): analysis_output ['confidence'] ['confidence_index'] (put confidence_level here, enclosed by brackets)
 
 (Do not change the wording)
 
