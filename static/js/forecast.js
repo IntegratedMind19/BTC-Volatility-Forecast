@@ -89,3 +89,5 @@ async function initializeForecastPage(){
     showErrorScreen(error.message);
   }
 }
+
+initializeForecastPage();
