@@ -27,4 +27,6 @@ def generate_report():
   
   return response
 
-print(generate_report())
+report = generate_report()
+print(report)
+print("\n\n\n" + type(report))
