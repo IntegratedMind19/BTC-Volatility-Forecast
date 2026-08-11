@@ -51,10 +51,11 @@ def get_status():
 def get_chart_data():
   report = load_report()
   chart_data = dict()
-  chart_data["price"] = report["analysis"]["historical_vol_and_price"]["price"]
-  chart_data["vol"] = report["analysis"]["historical_vol_and_price"]["vol"]
+  chart_data["price"] = report["analysis"]["date_vol_and_price"]["price"]
+  chart_data["vol"] = report["analysis"]["date_vol_and_price"]["vol"]
   chart_data["prediction"] = report["analysis"]["prediction"]["predicted_volatility"]
-  chart_data["dates"] = [(datetime.now(timezone.utc).date() - timedelta(days = t)).strftime("%d/%m/%Y") for t in range(29,-1,-1)]
+  chart_data["date_price"] = report["analysis"]["date_vol_and_price"]["date_price"]
+  chart_data["date_vol"] = report["analysis"]["date_vol_and_price"]["date_vol"]
   chart_data["tomorrow_date"] = (datetime.now(timezone.utc).date() - timedelta(days = -1)).strftime("%d/%m/%Y")
   return jsonify(chart_data)
 
