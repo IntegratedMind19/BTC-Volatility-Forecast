@@ -4,12 +4,14 @@ const reportContent = document.getElementById("report-content");
 const errorMessage = document.getElementById("error-message")
 
 function showLoadingScreen(){
+  console.log("Loading...");
   loadingScreen.hidden = false;
   errorScreen.hidden = true;
   reportContent.hidden = true;
 }
 
 function showErrorScreen(message){
+  console.log("An error occured");
   loadingScreen.hidden = true;
   errorScreen.hidden = false;
   reportContent.hidden = true;
@@ -17,6 +19,7 @@ function showErrorScreen(message){
 }
 
 function showReport(){
+  console.log("Report shown");
   loadingScreen.hidden = true;
   errorScreen.hidden = true;
   reportContent.hidden = false;
