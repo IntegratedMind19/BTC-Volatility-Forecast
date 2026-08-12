@@ -10,20 +10,23 @@ File: output_format.md
 7. Overall Summary
 8. Metadata
 
-Return one JSON object with exactly these fields (do not change the naming):
+Return exactly one valid JSON object.
 
-{"forecast_summary": string,
-  "feature_interpretation": string,
-  "historical_trend_overview": string,
-  "market_context": string,
-  "confidence": string,
-  "model_limitations": string,
-  "overall_summary": string,
-  "metadata": string}
+Do not wrap the JSON object in Markdown code fences.
+Do not include any text before or after the JSON object.
 
-Ensure that the JSON object is loadable.
+The object must contain exactly these keys:
+- forecast_summary
+- feature_interpretation
+- historical_trend_overview
+- market_context
+- confidence
+- model_limitations
+- overall_summary
+- metadata
 
-Do not put leading or trailing "\n" or "\" when starting or finishing a field. In other words, ensure the JSON produced is parsable/loadable.
+Each value must be a JSON string.
+Newlines within string values are permitted.
 
 Below is the defective report JSON snippet example:
 
