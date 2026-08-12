@@ -59,13 +59,13 @@ def get_chart_data():
   chart_data["tomorrow_date"] = (datetime.now(timezone.utc).date() - timedelta(days = -1)).strftime("%d/%m/%Y")
   return jsonify(chart_data), 200
 
-@app.route("/forecast")
-def forecast_explanation():
-  return render_template("forecast.html")
-
 @app.route("/definitions")
 def definitions():
   return render_template("definitions.html")
+
+@app.route("/forecast")
+def forecast_explanation():
+  return render_template("forecast.html")
 
 @app.route("/about")
 def about():
