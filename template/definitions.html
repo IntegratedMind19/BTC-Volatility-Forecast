@@ -18,6 +18,8 @@
     </h1>
     <br>
     <p><span style='font-weight: bold;'>Confidence index: </span>The confidence index measures the internal consistency of the forecast using indicators such as ensemble agreement and volatility persistence. A higher value indicates stronger agreement among the system's internal indicators. It is not a probability of accuracy and does not guarantee that the forecast will be correct.</p>
+    <p><span style='font-weight: bold;'>Feature importance: </span>Feature importance indicates the relative influence of each input feature within the trained Random Forest model. A higher importance value means that the feature contributed more to the model's decision-making across its trees. Feature importance does not establish causation and does not show whether a feature increased or decreased an individual forecast.</p>
+    
     <script src="{{url_for('static', filename='/js/theme.js')}}"></script>
   </body>
 </html>
