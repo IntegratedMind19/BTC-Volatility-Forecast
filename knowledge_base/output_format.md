@@ -14,9 +14,11 @@ File: output_format.md
 
 ---
 
-# Detailed output format (strictly follow the formatting. Bold each section title)
+# Detailed output format 
 
-## Forecast Summary
+(Strictly follow the formatting. Bold each section title. Always line break whenever a section is finished)
+
+## I. Forecast Summary
 
 Predicted volatility: analysis_output ['prediction'] ['predicted_volatility'] (higher or lower based on analysis_output ['prediction'] ['forecast_relativity']. State explicitly whether higher/lower than today's volatility)
 
@@ -32,13 +34,13 @@ Example:
 
 The predicted volatility of 2.21% is slightly higher than today's estimated volatility (2.17%), but remains below the recent monthly average (2.32%). Consequently, the overall volatility regime and risk level remain classified as Low.)
 
-## Feature Interpretation
+## II. Feature Interpretation
 
 (List top 3 most significant features with their importances. Convert each feature importances to percentage (e.g. 0.64581 becomes 64.58%).)
 
 (Provide brief explanation by adhering to the guideline interpretation_rules.md. Do not give explanations on individual features)
 
-## Historical Trend Overview
+## III. Historical Trend Overview
 
 Monthly average volatility: analysis_output ['historical_analysis'] ['monthly_average']
 
@@ -58,7 +60,7 @@ Persistence: analysis_output ['historical_analysis'] ['persistence'] (state that
 
 (Explain the connection with the resulting forecast, whether the result is consistent or not.)
 
-## Market Context
+## IV. Market Context
 
 (Ensure the explanations adhere to ./interpretations.md)
 
@@ -74,7 +76,7 @@ State maximum three relevant news items. Do not include news which contradicts o
 Disclaimer:
 Do not change the wording from the market context json data.
 
-## Confidence
+## V. Confidence
 
 Confidence index (max 100): analysis_output ['confidence'] ['confidence_index'] (put confidence_level here, enclosed by brackets)
 
@@ -96,7 +98,7 @@ Example:
 
 The current confidence index of 85.12 is classified as high, suggesting relatively strong agreement among the model's internal indicators. Strong volatility persistence further supports the stability of the forecast.)
 
-## Model Limitations
+## VI. Model Limitations
 
 (Do not change the wording)
 
@@ -108,14 +110,14 @@ The forecasting model has several limitations.
 - The model predicts volatility rather than future price direction.
 - Feature importance indicates model influence rather than causal relationships.
 
-## Overall Summary
+## VII. Overall Summary
 (Provide a brief summary based on the obtained result and interpretations.
 
 Example: (Change some informations or wordings if appropriate)
 
 Overall, the model forecasts another day of relatively low Bitcoin volatility, with expected market fluctuations remaining close to recent historical levels. Although volatility is forecast to increase slightly compared with today, the increase is modest and remains consistent with the current low-volatility regime. Users should interpret this forecast alongside external market developments, which are not incorporated directly into the prediction model.)
 
-## Metadata
+## VIII. Metadata
 Timestamp: <YYYY-MM-DD HH:MM:SS> (UTC)
 
 Model version: (Use the information from analysis_output)
