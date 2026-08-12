@@ -156,3 +156,18 @@ button:hover {
     flex-direction: row;
     justify-content: flex-start;
 }
+
+.definition-button {
+    padding: 10px 16px;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.definition-button:hover {
+    background-color: var(--button-hover);
+}
