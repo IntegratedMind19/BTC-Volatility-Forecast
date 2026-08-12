@@ -25,18 +25,11 @@ The object must contain exactly these keys:
 - overall_summary
 - metadata
 
-Each value must be a JSON string.
-Newlines within string values are permitted.
-
-Below is the defective report JSON snippet example:
-
-"{\n  \"forecast_summary\": \"Predicted volatility: 1.96% (higher than today's volatility of 1.87%).\\n\\nLarger price fluctuations are expected compared with today's estimated volatility. This refers only to the expected size of price movements and does not indicate whether Bitcoin's price will rise or fall.\\n\\nVolatility regime: low, 3.63rd percentile. [Bitcoin price fluctuations have remained relatively stable recently. Unexpected events can still increase volatility.]\\n\\nRisk level: low [Overall, this suggests relatively calmer market conditions, although the forecast is slightly higher than today's estimate.]\\n\\nThe model forecasts a modest increase in volatility from today's level, while the overall volatility regime remains low.\",\n  \"feature_interpretation\": \"Top 3 most significant features:\\n- garch_vol_lag_1: 76.91%\\n- rolling_std_14: 18.30%\\n- rolling_std_7: 2.36%\\n\\nThe forecast relied most heavily on recent GARCH volatility and recent rolling volatility measures. These indicators describe recent market uncertainty and short-term variability, which naturally relate to the model's expectation of slightly higher volatility while still remaining in a low-volatility regime. Feature importance indicates model influence, not causation.\",\n  \"historical_trend_overview\": ...
-
-Notice the leading "\n  \" before "forecast_summary". This fails the JSON parser. The rest parts also apply.
+(maintain the section names)
 
 ---
 
-# Detailed output format each section (strictly follow the formatting)
+# Detailed output format (strictly follow the formatting. Bold each section title)
 
 ## Forecast Summary
 
