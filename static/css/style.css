@@ -150,3 +150,9 @@ button:hover {
     display: flex;
     justify-content: space-between;
 }
+
+#report-left-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
