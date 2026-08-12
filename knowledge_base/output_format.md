@@ -10,21 +10,6 @@ File: output_format.md
 7. Overall Summary
 8. Metadata
 
-Return exactly one valid JSON object.
-
-Do not wrap the JSON object in Markdown code fences.
-Do not include any text before or after the JSON object.
-
-The object must contain exactly these keys:
-- forecast_summary
-- feature_interpretation
-- historical_trend_overview
-- market_context
-- confidence
-- model_limitations
-- overall_summary
-- metadata
-
 (maintain the section names)
 
 ---
