@@ -74,6 +74,11 @@ button:hover {
   background-color: var(--button-hover);    
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* index.html */
 
 .top-bar {
@@ -145,11 +150,6 @@ button:hover {
 }
 
 /* forecast.html */
-
-.report-header {
-    display: flex;
-    justify-content: space-between;
-}
 
 #report-left-header {
     gap: 20px;
