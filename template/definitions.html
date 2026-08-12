@@ -31,7 +31,14 @@
     <p><span style='font-weight: bold;'>Volatility regime: </span>The volatility regime classifies current volatility relative to its recent historical distribution.\nHigh: volatility is above its normal recent level.\nMedium: volatility is close to its normal recent level.\nLow: volatility is below its normal recent level.</p>
     <br>
     <h3 style='font-weight: bold;'>Features</h3>
-    <p><span style='font-weight: bold;'>return_lag_1 (Yesterday's return)</span>Bitcoin's log return from the previous trading day. <i>(see "Return")</i></p>
+    <p><span style='font-weight: bold;'>garch_vol_lag_1 (Yesterday's GARCH Volatility): </span>The GARCH volatility estimate from the previous trading day. <i>(see "GARCH Volatility")</i></p>
+    <p><span style='font-weight: bold;'>garch_vol_lag_2 (GARCH Volatility two days ago): </span>The GARCH volatility estimate from two trading days before the forecast date. <i>(see "GARCH Volatility")</i></p>
+    <p><span style='font-weight: bold;'>return_lag_1 (Yesterday's return): </span>Bitcoin's log return from the previous trading day. <i>(see "Return")</i></p>
+    <p><span style='font-weight: bold;'>return_lag_2 (Return two days ago): </span>Bitcoin's log return from two trading days before the forecast date. <i>(see "Return")</i></p>
+    <p><span style='font-weight: bold;'>rolling_mean_7 (7-day average return): </span>The average Bitcoin return calculated over the most recent seven trading days. <i>(see "Return")</i></p>
+    <p><span style='font-weight: bold;'>rolling_std_3 (3-day rolling volatility): </span>The standard deviation of Bitcoin returns calculated over the most recent three trading days. <i>(see "Return" and "GARCH Volatility")</i></p>
+    <p><span style='font-weight: bold;'>rolling_std_7 (7-day rolling volatility): </span>The standard deviation of Bitcoin returns calculated over the most recent seven trading days. <i>(see "Return" and "GARCH Volatility")</i></p>
+    <p><span style='font-weight: bold;'>rolling_std_14 (14-day rolling volatility): </span>The standard deviation of Bitcoin returns calculated over the most recent fourteen trading days. <i>(see "Return" and "GARCH Volatility")</i></p>
     <script src="{{url_for('static', filename='/js/theme.js')}}"></script>
   </body>
 </html>
