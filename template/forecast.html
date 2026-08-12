@@ -7,9 +7,14 @@
   </head>
   <body>
     <header class="report-header">
-      <a href="{{url_for('index')}}" class="back-button">
-        Back
-      </a>
+      <div id="report-left-header">
+        <a href="{{url_for('index')}}" class="back-button">
+          Back
+        </a>
+        <a href="{{url_for('definitions')}}" class="definition-button">
+          View Glossary
+        </a>
+      </div>
       <button id="theme-toggle" class="theme-toggle">
         Dark mode
       </button>
