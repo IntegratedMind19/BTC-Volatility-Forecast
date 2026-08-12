@@ -4,11 +4,6 @@ from datetime import date, timedelta, timezone, datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from scheduler import generate_scheduled_report
 from forecast_store import load_report, load_status
-import json
-from pathlib import Path
-
-ROOT_PATH = Path(__file__).resolve().parent
-DEFINITIONS_PATH = Path(ROOT_PATH + "/config/definitions.json")
 
 scheduler = BackgroundScheduler(timezone = "UTC")
 
@@ -68,15 +63,9 @@ def get_chart_data():
 def forecast_explanation():
   return render_template("forecast.html")
 
-@app.route("/api/definitions")
-def get_definitions():
-  try:
-    definitions = json.loads(DEFINITIONS_PATH.read_text(encoding="utf-8"))
-    if not definitions or definitions is None:
-      return jsonify({"information": "Unable to retrieve definitions"}), 400
-    return jsonify(definitions), 200
-  except Exception as exc:
-    return jsonify({"error": exc}), 400
+@app.route("/definitions")
+def definitions():
+  return render_template("definitions.html")
 
 @app.route("/about")
 def about():
