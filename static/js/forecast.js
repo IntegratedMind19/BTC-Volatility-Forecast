@@ -89,6 +89,7 @@ async function initializeForecastPage(){
       if(!status.previous_report_available){
         showErrorScreen(status.error);
       } else {
+        console.log(status.error);
         await loadLatestReport();
       }
       return;
