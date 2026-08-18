@@ -11,6 +11,7 @@ from sqlalchemy.sql import func
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not DATABASE_URL:
+  print(DATABASE_URL)
   raise RuntimeError("DATABASE_URL is not defined")
 
 engine = create_engine(DATABASE_URL, pool_pre_ping = True)
