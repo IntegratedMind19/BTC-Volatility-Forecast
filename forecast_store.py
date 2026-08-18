@@ -1,6 +1,7 @@
 from __future__ import annotations
 import json
 import os
+from dotenv import load_dotenv
 from pathlib import Path
 from threading import Lock
 from typing import Any
@@ -8,6 +9,7 @@ from sqlalchemy import (Column, DateTime, Integer, Text, create_engine)
 from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy.sql import func
 
+load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not DATABASE_URL:
