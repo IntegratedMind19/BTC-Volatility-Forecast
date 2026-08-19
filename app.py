@@ -28,6 +28,10 @@ app = Flask(__name__, template_folder = "template")
 def index():
   return render_template("index.html")
 
+@app.get("/health")
+def get_health():
+  return jsonify({"status": "healthy"}), 200
+
 @app.get("/api/forecast/latest")
 def get_latest_report():
   latest_report = load_report()
