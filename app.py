@@ -30,7 +30,7 @@ def index():
 
 @app.get("/health")
 def get_health():
-  return jsonify({"status": "healthy"}), 200
+  return jsonify({"status": "ok"}), 200
 
 @app.get("/api/forecast/latest")
 def get_latest_report():
