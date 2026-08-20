@@ -36,3 +36,5 @@ def generate_scheduled_report() -> None:
         "previous_report_available": previous_report is not None
       }
     )
+    
+generate_scheduled_report()
