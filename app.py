@@ -3,7 +3,7 @@ from llm.client import generate_report
 from datetime import date, timedelta, timezone, datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from scheduler import generate_scheduled_report
-from forecast_store import load_report, load_status
+from forecast_store import load_report, load_status, initialize_store
 '''
 scheduler = BackgroundScheduler(timezone = "UTC")
 
@@ -24,6 +24,8 @@ if load_report() is None:
   generate_scheduled_report()
 
 app = Flask(__name__, template_folder = "template")
+
+initialize_store()
 
 @app.route("/")
 def index():
