@@ -18,9 +18,10 @@ scheduler.add_job(
   coalesce = True,
   max_instances = 1
 )
-
+'''
 if load_report() is None:
   generate_scheduled_report()
+'''
 
 app = Flask(__name__, template_folder = "template")
 
