@@ -1,3 +1,83 @@
+import json
+import os
+import psycopg
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+def initialize_store():
+    with psycopg.connect(DATABASE_URL) as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS forecast_state (
+                    id INTEGER PRIMARY KEY,
+                    report JSONB,
+                    status JSONB
+                )
+            """)
+
+            cur.execute("""
+                INSERT INTO forecast_state (id)
+                VALUES (1)
+                ON CONFLICT (id) DO NOTHING
+            """)
+
+        conn.commit()
+
+def save_report(report):
+    with psycopg.connect(DATABASE_URL) as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                UPDATE forecast_state
+                SET report = %s
+                WHERE id = 1
+                """,
+                (json.dumps(report),)
+            )
+
+        conn.commit()
+
+def load_report():
+    with psycopg.connect(DATABASE_URL) as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                "SELECT report FROM forecast_state WHERE id = 1"
+            )
+
+            row = cur.fetchone()
+    if row is None or row[0] is None:
+        return None
+
+    return row[0]
+
+def save_status(status):
+    with psycopg.connect(DATABASE_URL) as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                UPDATE forecast_state
+                SET status = %s
+                WHERE id = 1
+                """,
+                (json.dumps(status),)
+            )
+
+        conn.commit()
+
+def load_status():
+    with psycopg.connect(DATABASE_URL) as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                "SELECT status FROM forecast_state WHERE id = 1"
+            )
+
+            row = cur.fetchone()
+
+    if row is None or row[0] is None:
+        return None
+    return row[0]
+
+'''
 from __future__ import annotations
 import json
 import os
@@ -42,3 +122,4 @@ def load_status() -> dict[str, Any] | None:
     return None
   print("STATUS FILE IS AVAILABLE")
   return json.loads(STATUS_FILE.read_text(encoding = "utf-8"))
+'''
