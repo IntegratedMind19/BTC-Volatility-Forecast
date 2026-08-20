@@ -4,7 +4,7 @@ from datetime import date, timedelta, timezone, datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from scheduler import generate_scheduled_report
 from forecast_store import load_report, load_status
-
+'''
 scheduler = BackgroundScheduler(timezone = "UTC")
 
 scheduler.add_job(
@@ -18,6 +18,7 @@ scheduler.add_job(
   coalesce = True,
   max_instances = 1
 )
+'''
 
 if load_report() is None:
   generate_scheduled_report()
@@ -76,5 +77,5 @@ def about():
   return render_template("about.html")
 
 if __name__ == "__main__":
-  scheduler.start()
+  # scheduler.start()
   app.run(debug = True, use_reloader = False)
