@@ -1,4 +1,4 @@
-from scheduler import generated_scheduled_report
+from scheduler import generate_scheduled_report
 
 if __name__ == "main":
-    generated_scheduled_report()
+    generate_scheduled_report()
