@@ -42,6 +42,8 @@ Forecast reports are generated automatically every four hours.
 
 ## System Architecture
 
+```text
+
 Historical BTC Data
         |
         v
