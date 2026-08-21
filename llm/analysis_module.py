@@ -257,7 +257,7 @@ def get_analysis_data():
                                           "volatility_regime_percentile": float(pred.vol_regime_percentile),
                                           "persistence_index": confidence.persistence,
                                           "ensemble_uncertainty_percentile": float(confidence.tree_disagreements_percentile)},
-                           "date_vol_and_price": {'vol': forecast_input.all_time_volatility.iloc[-30:].tolist(),
+                           "date_vol_and_price": {'vol': forecast_input.all_time_volatility.iloc[-29:].tolist(),
                                                   'price': forecast_input.btc["Close"].iloc[-29:].tolist(),
                                                  'date_price': forecast_input.btc["Close"].iloc[-29:].index.strftime('%d/%m/%Y').tolist(),
                                                  'date_vol': forecast_input.all_time_volatility.iloc[-29:].index.strftime('%d/%m/%Y').tolist()},
